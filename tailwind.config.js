@@ -9,9 +9,14 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['var(--font-cabin)']
+      },
+    },
   },
   plugins: [
     require("tailwind-scrollbar-hide"),
+    require('@tailwindcss/aspect-ratio'),
   ],
 }

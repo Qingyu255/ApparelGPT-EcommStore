@@ -1,36 +1,37 @@
-import { Fragment, useEffect, useState } from "react"
+import Layout from "../../components/layout/Layout"
 import ProductCard from "../../components/productCard/ProductCard"
+import { initMongoose } from "../../lib/mongoose"
+import { findAllProducts } from "./api/products"
 
 
-export default function Home() {
-  const [productsInfo, setProductsInfo] = useState([])
-
-  useEffect(() => {
-    fetch("/api/products")
-      .then(response => response.json())
-      .then(json => setProductsInfo(json))
-  }, [])
-
-  const categoriesNames = [...new Set(productsInfo.map(p => p.category))]
+export default function Home({products}) {
+  
+  const categoriesNames = [...new Set(products.map(p => p.category))]
 
   return (
-    
-    <Fragment>
-      {/* Make card responsive pls */}
+    <Layout>
       {categoriesNames.map(categoryName => (
         <div key={categoryName}>
-          <h2 className="text-3xl font-bold mx-10 ">{categoryName}</h2>
-          <div className="flex overflow-x-auto snap-x">
-            {productsInfo.filter(p => p.category === categoryName).map(product =>(
-              <div key={product.id} className="snap-start">
-                <ProductCard key={product.id} name={product.name} image={product.picture} description={product.description} price={product.price}/>
+          <h2 className="text-3xl font-bold mx-10 py-5">{categoryName}</h2>
+          <div className="flex overflow-x-auto snap-x pb-3">
+            {products.filter(p => p.category === categoryName).map(product =>(
+              <div key={product._id} className="snap-start">
+                <ProductCard _id={product._id} name={product.name} image={product.picture} description={product.description} price={product.price}/>
               </div>
             ))}
           </div>
-          
-        </div>
+        </div> 
       ))}
-    </Fragment>
+    </Layout>
   )
 }
 
+export async function getServerSideProps() {
+  await initMongoose()
+  const products = await findAllProducts()
+  return {
+    props : {
+      products: JSON.parse(JSON.stringify(products)),
+    },
+  }
+}

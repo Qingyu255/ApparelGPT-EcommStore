@@ -1,12 +1,15 @@
 import { Fragment } from "react"
-import NavBar from "./navbar"
+import Bar from "./bar"
+import Footer from "./Footer"
 
 
-function Layout(props) {
+function Layout({children}) {
     return (
         <Fragment>
-            <NavBar />
-            <main>{props.children}</main>
+            <Bar />
+            <div>{children}</div>
+            <Footer />
+            
         </Fragment>
     )
 }
