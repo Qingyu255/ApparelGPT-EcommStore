@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
 import { Cabin } from "next/font/google"
-import Layout from '../../components/layout/layout'
 import { ProductsContextProvider } from '../../components/productCard/ProductsContext'
+import { CustomiserContextProvider } from '../../components/customiser/CustomiserContext'
 
 const cabin = Cabin({
   subsets: ["latin"],
@@ -11,11 +11,13 @@ const cabin = Cabin({
 function App({ Component, pageProps }) {
   return (
     <ProductsContextProvider>
-      <div className='bg-neutral-50'>
-        <div className={`${cabin.variable} font-sans`}>
-            <Component {...pageProps} />
+      <CustomiserContextProvider>
+        <div className='bg-neutral-50'>
+          <div className={`${cabin.variable} font-sans`}>
+              <Component {...pageProps} />
+          </div>
         </div>
-      </div>
+      </CustomiserContextProvider>
     </ProductsContextProvider>
   )
 }

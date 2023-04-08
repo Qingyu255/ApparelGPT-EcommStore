@@ -28,19 +28,20 @@ export default function CheckoutPage() {
                 <div className="flex flex-wrap justify-center my-10 py-5 sm:flex-row">
                 
                     <div className="flex flex-col pb-5">
-                        <h1 className="mx-10 font-bold text-3xl">Your Bag</h1>
+                        
                         {!selectedProducts.length && (
                             <div>
                                 <h1>There are no products in your shopping cart.</h1>
                             </div>
                         )}
+                        {selectedProducts.length > 0 && <h1 className="mx-10 font-bold text-3xl">Your Bag</h1>}
                         {selectedProducts.length > 0 && (
                             productsInfo.map(productInfo => <CheckoutProductCard key={productInfo._id} id={productInfo._id} name={productInfo.name} image={productInfo.picture} price={productInfo.price} quantity={selectedProducts.filter(id => id === productInfo._id).length}/>  
                         ))}
                     </div>
 
                     {selectedProducts.length > 0 && (
-                        <div className="grow max-w-xs">
+                        <div className="grow max-w-xs mr-5">
                             <h1 className="font-bold text-3xl">Summary</h1>
                             <div className="py-5">
                                 <div className="flex flex-row items-center text-xl">

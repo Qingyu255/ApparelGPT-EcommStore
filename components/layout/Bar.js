@@ -16,7 +16,7 @@ export default function Bar() {
                         <div class="px-10 xl:px-12 py-6 flex w-full items-center">
                         
                             <Link class="text-3xl font-bold font-heading" href="/">
-                                <h1>logo</h1>
+                                <h1>Apparel GPT</h1>
                                 {/* <img class="h-9" src="logo.png" alt="logo"></img> */}
                                 {/* Logo Here. */}
                             </Link>
@@ -24,7 +24,7 @@ export default function Bar() {
                             <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                                 <li><Link class="hover:text-gray-200" href="/totes">Totes</Link></li>
                                 <li><Link class="hover:text-gray-200" href="/shirts">Shirts</Link></li>
-                                <li><Link class="hover:text-gray-200" href="/customise">Customise</Link></li>
+                                <li><Link class="hover:text-gray-200" href="/customise">Customise with AI</Link></li>
                                 <li><Link class="hover:text-gray-200" href="/contacts">Contact Us</Link></li>
                             </ul>
                             {/* <!-- Header Icons --> */}

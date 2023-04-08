@@ -1,5 +1,5 @@
 import { Fragment } from "react"
-import Bar from "./bar"
+import Bar from "./Bar"
 import Footer from "./Footer"
 
 

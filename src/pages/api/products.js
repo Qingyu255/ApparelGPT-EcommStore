@@ -1,6 +1,7 @@
 import { initMongoose } from "../../../lib/mongoose";
 import Product from "../../../models/Product";
 
+
 export async function findAllProducts() {
     return Product.find().exec()
 }
@@ -13,7 +14,6 @@ export default async function handle(req, res) {
     if (ids) {
         res.json( await Product.find({"_id": {$in: ids.split(",")}}).exec() )
     } else {
-        console.log("hi")
         res.json( await findAllProducts() )
     }
 }
