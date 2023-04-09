@@ -5,20 +5,32 @@ import { ProductsContext } from "../../components/productCard/ProductsContext"
 import useLocalStorageState from "use-local-storage-state"
 
 export default function CheckoutPage() {
-    const {selectedProducts} = useContext(ProductsContext)
+    const { selectedProducts, customProducts } = useContext(ProductsContext)
     const [productsInfo, setProductsInfo] = useLocalStorageState("uniqueProductsInfo", {defaultValue: []})
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const uniqueIds = [...new Set(selectedProducts)]
-        if (uniqueIds.length > 0) {
-            fetch("/api/products?ids="+uniqueIds.join(","))
-                .then(response => response.json())
-                .then(json => setProductsInfo(json))
-                .then(() => setLoading(false))
-        } else {
-           setLoading(false)
+        const uniqueCustomIds = [...new Set(customProducts)]
+        async function fetchProducts() {
+            if (uniqueIds.length > 0) {
+                await fetch("/api/products?ids="+uniqueIds.join(","))
+                    .then(response => response.json())
+                    .then(json => setProductsInfo(json))
+                    .then(() => setLoading(false))
+
+                // W0rk on api fetch to checkout for customProducts
+                // await fetch("/api/post", {
+                //     method: "GET",
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //     },
+                // })
+            } else {
+            setLoading(false)
+            }
         }
+        fetchProducts()
     }, [selectedProducts])
 
 

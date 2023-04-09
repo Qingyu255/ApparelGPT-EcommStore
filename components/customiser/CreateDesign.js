@@ -40,8 +40,8 @@ export default function CreateDesign () {
         }
     }
 
-    async function handleSubmit() {
-        // e.preventDefault()
+    async function handleSubmit(e) {
+        e.preventDefault()
         if (form.prompt && form.photo) {
             setLoading(true)
             try {
@@ -52,11 +52,15 @@ export default function CreateDesign () {
                     },
                     body: JSON.stringify({ ...form }),
                 })
-                await response.json()
+                const postData = await response.json()
+                console.log(postData)
+                setCustomProducts(prev => [...prev, postData.data._id])
                 alert("success")
                 // router.push("/")
 
             } catch (error) {
+                console.log(error)
+                console.log("oop")
                 alert(error)
             } finally {
                 setLoading(false)
@@ -135,7 +139,7 @@ export default function CreateDesign () {
                             type="submit"
                             className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                         >
-                            {loading ? 'Sharing...' : 'Share with the Community'}
+                            {loading ? 'Sharing...' : 'Add To Cart and Share with the Community'}
                         </button>
                     </div> 
                 </div>

@@ -4,7 +4,8 @@ const PostSchema = new Schema ({
     name: String,
     prompt: String,
     photo: String,
-    shirtColour: String,
+    product: String,
+    colour: String,
 })
 
 const Post = models?.posts || model("posts", PostSchema)

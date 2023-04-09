@@ -9,7 +9,6 @@ function Layout({children}) {
             <Bar />
             <div>{children}</div>
             <Footer />
-            
         </Fragment>
     )
 }

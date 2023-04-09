@@ -60,47 +60,50 @@ export default function Overview () {
 
   return (
     <Fragment>
-        <div>
-            <h1 className='font-extrabold text-xl'>See Others' Designs</h1>
-            <p> Browse through a collection of prints designed by our dearest AI, Dall E.</p>
-        </div>
-        <div className='mt-5 mb-10'>
-            <FormField
-                labelName="Search Designs"
-                type="text"
-                name="text"
-                placeholder="Search something..."
-                value={searchText}
-                handleChange={handleSearchChange}
-            />
-        </div>
-        <div>
-            {loading? (
-                <div className='flex justify-center items-center'>
-                    <Loader />
-                </div>
-            ) : (
-            <Fragment>
-                {searchText && (
-                    <h2 className='font-medium text-gray-500 text-md mb-3'>
-                        Showing results for <span className='text-gray-500'>{searchText}</span>
-                    </h2>
-                )}
-                <div className='flex flex-wrap justify-center gap-10 '>
-                    {searchText ? (
-                        <RenderCards
-                            data={searchedResults}
-                            title="No search results found"
-                        />
-                    ) : (
-                        <RenderCards
-                            data={allPosts}
-                            title="NO POSTS FOUND"
-                        />
+        <div className='border-t-2 '>
+            <div>
+                <h1 className='font-extrabold text-xl mt-10'>See Others' Designs</h1>
+                <p> Browse through a collection of prints designed by our dearest AI, Dall E.</p>
+            </div>
+            <div className='mt-5 mb-10'>
+                <FormField
+                    labelName="Search Designs"
+                    type="text"
+                    name="text"
+                    placeholder="Search something..."
+                    value={searchText}
+                    handleChange={handleSearchChange}
+                />
+            </div>
+            <div>
+                {loading? (
+                    <div className='flex justify-center items-center'>
+                        <Loader />
+                    </div>
+                ) : (
+                <Fragment>
+                    {searchText && (
+                        <h2 className='font-medium text-gray-500 text-md mb-3'>
+                            Showing results for <span className='text-gray-500'>{searchText}</span>
+                        </h2>
                     )}
-                </div>
-            </Fragment>
-            )}
+                    <div className='flex flex-wrap justify-center gap-10 '>
+                        {searchText ? (
+                            <RenderCards
+                                data={searchedResults}
+                                title="No search results found"
+                            />
+                        ) : (
+                            <RenderCards
+                                data={allPosts}
+                                title="NO POSTS FOUND"
+                            />
+                        )}
+                    </div>
+                
+                </Fragment>
+                )}
+            </div>
         </div>
     </Fragment>
     

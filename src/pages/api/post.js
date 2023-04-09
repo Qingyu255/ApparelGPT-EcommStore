@@ -8,6 +8,14 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 })
 
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '4mb',
+    },
+  },
+}
+
 export default async function handle(req, res) {
   // await to wait for connection
   await initMongoose()
@@ -22,13 +30,15 @@ export default async function handle(req, res) {
   } else {
     // This block is for req.method === "POST"
     try {
-      const { name, prompt, photo, shirtColour } = req.body
+      const { name, prompt, photo, colour, product } = req.body
       const photoUrl = await cloudinary.uploader.upload(photo)
       const newPost = await Post.create({
         name,
         prompt,
         photo: photoUrl.url,
-        shirtColour: shirtColour,
+        colour: colour,
+        product: product,
+        
       })
       res.status(200).json({ success: true, data: newPost })
     } catch (err) {
