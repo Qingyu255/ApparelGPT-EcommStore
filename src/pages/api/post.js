@@ -19,11 +19,18 @@ export const config = {
 export default async function handle(req, res) {
   // await to wait for connection
   await initMongoose()
-  // This is just destructuring
+  const {ids} = req.query
+
   if (req.method === "GET") {
       try {
-        const posts = await Post.find().exec()
-        res.status(200).json({ success: true, data: posts })
+        if (ids) {
+          const posts = await Post.find({"_id": {$in: ids.split(",")}}).exec() 
+          res.status(200).json({ success: true, data: posts })
+        } else {
+          const posts = await Post.find().exec()
+          res.status(200).json({ success: true, data: posts })
+        }
+
       } catch (error) {
         res.status(500).json({ success: false, message: 'Fetching posts failed, please try again' })
       }

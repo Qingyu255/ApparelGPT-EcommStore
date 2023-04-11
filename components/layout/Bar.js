@@ -3,7 +3,7 @@ import { Fragment, useContext } from "react"
 import { ProductsContext } from "../productCard/ProductsContext"
 
 export default function Bar() {
-    const {selectedProducts} = useContext(ProductsContext)
+    const {selectedProducts, selectedCustomProducts} = useContext(ProductsContext)
     return (
         <Fragment>
             {/* <!-- component -->
@@ -44,7 +44,7 @@ export default function Bar() {
                                         <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-500">
                                         </span>
                                     </span>
-                                    <p className="px-1.5 pt-0.5">{selectedProducts.length}</p>
+                                    <p className="px-1.5 pt-0.5">{selectedProducts.length + selectedCustomProducts.length}</p>
                                 </a>                           
                             </div>
                         </div>
@@ -57,7 +57,7 @@ export default function Bar() {
                                 <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-cyan-400 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-400"></span>
                             </span>
-                            <p className="pl-1.5 pt-0.5">{selectedProducts.length}</p>
+                            <p className="pl-1.5 pt-0.5">{selectedProducts.length + selectedCustomProducts.length}</p>
                         </a>
                         <a class="navbar-burger self-center mr-12 xl:hidden" href="/side">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">

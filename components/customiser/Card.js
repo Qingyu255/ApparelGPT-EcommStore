@@ -5,11 +5,11 @@ export default function Card ({ _id, name, prompt, photo, product, colour}) {
   // This Card is for the AI products overview/showcase
   const shirtRoute = "/products/blankShirts/" + colour
   const toteRoute = "/products/blankTotes/" + colour
-  const { selectedProducts, setSelectedProducts, customProducts, setCustomProducts } = useContext(ProductsContext)
+  const { selectedProducts, setSelectedProducts, selectedCustomProducts, setSelectedCustomProducts } = useContext(ProductsContext)
 
   function handleAddToCart() {
-    setSelectedProducts(prev => [...prev, _id])
-    setCustomProducts(prev => [...prev, _id])
+    // setSelectedProducts(prev => [...prev, _id])
+    setSelectedCustomProducts(prev => [...prev, _id])
   }
 
   return (
