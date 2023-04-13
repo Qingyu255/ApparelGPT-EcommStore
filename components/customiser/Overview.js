@@ -14,7 +14,7 @@ function RenderCards({data, title}) {
 }
 
 
-export default function Overview () {
+export default function Overview (props) {
     const [loading, setLoading] = useState(false)
     const [allPosts, setAllPosts] = useState(null)
     const [searchText, setSearchText] = useState("")
@@ -60,20 +60,30 @@ export default function Overview () {
 
   return (
     <Fragment>
-        <div className='border-t-2 '>
-            <div>
-                <h1 className='font-extrabold text-xl mt-10'>See Others' Designs</h1>
-                <p> Browse through a collection of prints designed by our dearest AI, Dall E.</p>
-            </div>
-            <div className='mt-5 mb-10'>
-                <FormField
-                    labelName="Search Designs"
-                    type="text"
-                    name="text"
-                    placeholder="Search something..."
-                    value={searchText}
-                    handleChange={handleSearchChange}
-                />
+        <div className='border-t-2'>
+            <div className='mx-10 '>
+            {props.home?
+                <div>
+                    <h2 className="text-3xl font-bold py-5">AI Designs</h2>
+                </div>
+                :
+                <div>
+                    <div>
+                        <h1 className='font-extrabold text-xl mt-10'>See Others' Designs</h1>
+                        <p> Browse through a collection of prints designed by our dearest AI, Dall E.</p>
+                    </div>
+                    <div className='mt-5 mb-10'>
+                        <FormField
+                            labelName="Search Designs"
+                            type="text"
+                            name="text"
+                            placeholder="Search something..."
+                            value={searchText}
+                            handleChange={handleSearchChange}
+                        />
+                    </div>
+                </div>
+            }    
             </div>
             <div>
                 {loading? (

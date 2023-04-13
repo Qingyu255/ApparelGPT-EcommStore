@@ -32,8 +32,9 @@ export default function CheckoutProductCard(props) {
                 <div className="flex items-center p-5 pl-0">
                     <div>
                         <h1 className="font-bold text-xl">{props.name}</h1>
-                        <h1 className="font-semibold">{props.price}</h1>
                         <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet</p>
+                        <h1 className="font-semibold pt-2">${props.price}</h1>
+                        
                         <div className="flex flex-row items-center">
                             <h1 className="mr-5">Quantity: </h1>
                             <button onClick={() => lowerProductQuantity(props.id)} className="bg-neutral-300 rounded-xl font-bold px-1.5">-</button>

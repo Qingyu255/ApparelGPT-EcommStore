@@ -2,6 +2,9 @@ import Layout from "../../components/layout/Layout"
 import ProductCard from "../../components/productCard/ProductCard"
 import { initMongoose } from "../../lib/mongoose"
 import { findAllProducts } from "./api/products"
+import Overview from "../../components/customiser/Overview"
+import Banner from "../../components/home/Banner"
+import Featured from "../../components/home/Featured"
 
 
 export default function Home({products}) {
@@ -10,6 +13,8 @@ export default function Home({products}) {
 
   return (
     <Layout>
+      <Banner />
+      <Featured />
       {categoriesNames.map(categoryName => (
         <div key={categoryName}>
           <h2 className="text-3xl font-bold mx-10 py-5">{categoryName}</h2>
@@ -22,6 +27,7 @@ export default function Home({products}) {
           </div>
         </div> 
       ))}
+      <Overview home={true} />
     </Layout>
   )
 }
