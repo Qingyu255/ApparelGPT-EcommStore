@@ -18,7 +18,7 @@ export default function Card ({ _id, name, prompt, photo, product, colour, purpo
           <div>
             {product === "Tote" ? 
               <div className="flex items-center justify-center group relative">
-                <img src={toteRoute} className={`${purpose != "featured" && "border-2 border-slate-600 rounded-xl"}`}></img>
+                <img src={toteRoute} className={`${purpose != "featured" && "border-2 border-slate-300 rounded-xl"}`}></img>
                 <div className="w-32 h-16 sm:w-48 sm:h-24 absolute flex justify-center">
                   <img className="rounded-md absolute h-40 sm:h-52" src={photo}></img>
                 </div>
@@ -40,7 +40,7 @@ export default function Card ({ _id, name, prompt, photo, product, colour, purpo
               </div>
             :
               <div className="flex items-center justify-center group relative">
-                <img src={shirtRoute} className={`${purpose != "featured" && "border-2 border-slate-600 rounded-xl"}`}></img>
+                <img src={shirtRoute} className={`${purpose != "featured" && "border-2 border-slate-300 rounded-xl"}`}></img>
                 <div className="w-32 h-48 sm:w-40 sm:h-60 absolute flex justify-center">
                   <img className="rounded-md absolute h-40 sm:h-52" src={photo}></img>
                 </div>
@@ -53,7 +53,7 @@ export default function Card ({ _id, name, prompt, photo, product, colour, purpo
                       <p className="text-white text-sm">{name}</p>
                     </div>
                     <button type="button" onClick={handleAddToCart} className="outline-none bg-transparent border-none">
-                      <img src="/addToCart.png" alt="download" className="w-8 h-8 object-contain invert" />
+                      <img src="/addToCart.png" alt="Add To Cart" className="w-8 h-8 object-contain invert" />
                     </button>
                   </div>
                 </div>

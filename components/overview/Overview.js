@@ -1,18 +1,38 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import Loader from '../Loader'
-import Card from './Card'
-import FormField from './FormField'
+import Card from '../customiser/Card'
+import FormField from '../customiser/FormField'
+import Carousel from './Carousel'
 
-function RenderCards({data, title}) {
+function RenderCards({data, title, home, carousel}) {    
     if(data?.length > 0) {
-        return data.map((post) => <Card key={post._id} {...post}/>)
-    }
-
-    return (
+        const productTypes = [...new Set(data.map(p => p.product))]   
+        console.log("product")
+        console.log(data)
+        return (
+            productTypes.map(productType => (
+                <div key={productType} className='flex flex-col my-5'>
+                    <h2 className="text-2xl md:text-4xl font-bold pb-5">{productType}s{home && "by Dall E"}</h2>
+                    <div>
+                        {carousel?
+                        <div>                      
+                            <Carousel posts={data.filter(post => post.product === productType)} />
+                        </div>                       
+                        : 
+                        <div className='flex flex-wrap justify-center gap-8'>
+                            {data.filter(post => post.product === productType).map((post) => <Card key={post._id} {...post}/>)}
+                        </div>
+                        }
+                    </div>                   
+                </div>
+            ))       
+        )               
+    } else{
+        return (
         <h2 className='mt-5 font-bold text-[#6449ff]'>{title}</h2>
-    )
+        )
+    }   
 }
-
 
 export default function Overview (props) {
     const [loading, setLoading] = useState(false)
@@ -60,16 +80,15 @@ export default function Overview (props) {
 
   return (
     <Fragment>
-        <div className='border-t-2'>
-            <div className='mx-10 '>
+        <div className='border-t-2 mx-10'>
             {props.home?
                 <div>
-                    <h2 className="text-3xl font-bold py-5">AI Designs</h2>
+                    {/* <h2 className="text-3xl font-bold py-5">Designed By AI:</h2> */}
                 </div>
                 :
                 <div>
                     <div>
-                        <h1 className='font-extrabold text-xl mt-10'>See Others' Designs</h1>
+                        <h1 className='font-extrabold text-xl mt-10'>Shop Others' Designs</h1>
                         <p> Browse through a collection of prints designed by our dearest AI, Dall E.</p>
                     </div>
                     <div className='mt-5 mb-10'>
@@ -84,7 +103,6 @@ export default function Overview (props) {
                     </div>
                 </div>
             }    
-            </div>
             <div>
                 {loading? (
                     <div className='flex justify-center items-center'>
@@ -97,16 +115,20 @@ export default function Overview (props) {
                             Showing results for <span className='text-gray-500'>{searchText}</span>
                         </h2>
                     )}
-                    <div className='flex flex-wrap justify-center gap-10 '>
+                    <div className=''>
                         {searchText ? (
                             <RenderCards
                                 data={searchedResults}
                                 title="No search results found"
+                                home={props.home}
+                                carousel={props.carousel}
                             />
                         ) : (
                             <RenderCards
                                 data={allPosts}
                                 title="NO POSTS FOUND"
+                                home={props.home}
+                                carousel={props.carousel}
                             />
                         )}
                     </div>

@@ -1,7 +1,7 @@
 import DesignCard from "../../../components/customiser/DesignCard";
 import Layout from "../../../components/layout/Layout";
 import CustomiserSettings from "../../../components/customiser/CustomiserSettings";
-import Overview from "../../../components/customiser/Overview";
+import Overview from "../../../components/overview/Overview";
 import CreateDesign from "../../../components/customiser/CreateDesign";
 
 export default function CustomPage() {

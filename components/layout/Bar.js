@@ -25,7 +25,7 @@ export default function Bar() {
                                 <li><Link class="hover:text-gray-200" href="/totes">Totes</Link></li>
                                 <li><Link class="hover:text-gray-200" href="/shirts">Shirts</Link></li>
                                 <li><Link class="hover:text-gray-200" href="/customise">Customise with AI</Link></li>
-                                <li><Link class="hover:text-gray-200" href="/contacts">Contact Us</Link></li>
+                                <li><Link class="hover:text-gray-200" href="/contacts">About Us</Link></li>
                             </ul>
                             {/* <!-- Header Icons --> */}
                             <div class="hidden xl:flex items-center space-x-5 items-center">

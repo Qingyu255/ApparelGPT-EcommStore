@@ -16,6 +16,10 @@ export const config = {
   },
 }
 
+export async function findAllPosts() {
+  return Post.find().exec()
+}
+
 export default async function handle(req, res) {
   // await to wait for connection
   await initMongoose()

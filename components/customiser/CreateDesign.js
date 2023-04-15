@@ -10,7 +10,7 @@ export default function CreateDesign () {
     const { form, setForm } = useContext(CustomiserContext)
     const [generatingImg, setGeneratingImage] = useState(false)
     const [loading, setLoading] = useState(false)
-    const { customProducts, setCustomProducts } = useContext(ProductsContext)
+    const { setSelectedCustomProducts } = useContext(ProductsContext)
 
     function handleAddToCart() {
       setCustomProducts(prev => [...prev, _id])
@@ -20,15 +20,17 @@ export default function CreateDesign () {
         if (form.prompt) {
             try {
                 setGeneratingImage(true)
+                
                 const response = await fetch('/api/dalle', {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ prompt:form.prompt })
+                    body: JSON.stringify({ prompt:form.prompt }),
                 })
 
                 const data = await response.json()
+                
                 setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` })
             } catch(error) {
                 alert(error)
@@ -54,7 +56,7 @@ export default function CreateDesign () {
                 })
                 const postData = await response.json()
                 console.log(postData)
-                setCustomProducts(prev => [...prev, postData.data._id])
+                setSelectedCustomProducts(prev => [...prev, postData.data._id])
                 alert("success")
                 // router.push("/")
 

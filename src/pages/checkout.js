@@ -21,7 +21,6 @@ export default function CheckoutPage() {
                     .then(json => setNonCustomProductsData(json))
                     // .then(() => setLoading(false))
             }
-                // W0rk on api fetch to checkout for customProducts
             if (uniqueCustomIds.length > 0) {
                 try {
                     const response = await fetch("/api/post?ids="+uniqueCustomIds.join(","), {
@@ -31,19 +30,15 @@ export default function CheckoutPage() {
                         },
                     })
                     if (response.ok) {
-                        console.log("fetchedtocart")
                         const fetchedData = await response.json()
-                        setCustomProductsData(fetchedData.data)
-                        
+                        setCustomProductsData(fetchedData.data) 
                     }
                 } catch(error) {
                     alert(error)
                 } finally {
                     setLoading(false)
                 }
-            }
-                
-            else {
+            } else {
             setLoading(false)
             }
         }
