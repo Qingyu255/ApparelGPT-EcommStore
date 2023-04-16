@@ -11,8 +11,8 @@ function RenderCards({data, title, home, carousel}) {
         console.log(data)
         return (
             productTypes.map(productType => (
-                <div key={productType} className='flex flex-col my-5'>
-                    <h2 className="text-2xl md:text-4xl font-bold pb-5">{productType}s{home && "by Dall E"}</h2>
+                <div key={productType} className='flex flex-col my-5 mx-10'>
+                    <h2 className="text-2xl md:text-4xl font-bold pb-5">{productType}s {home && "by Dall E"}</h2>
                     <div>
                         {carousel?
                         <div>                      
@@ -80,7 +80,7 @@ export default function Overview (props) {
 
   return (
     <Fragment>
-        <div className='border-t-2 mx-10'>
+        <div className='border-t-2 2xl:mx-10'>
             {props.home?
                 <div>
                     {/* <h2 className="text-3xl font-bold py-5">Designed By AI:</h2> */}

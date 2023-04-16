@@ -1,5 +1,6 @@
 import { Fragment, useContext} from "react"
 import { ProductsContext } from "./ProductsContext"
+import Link from "next/link"
 
 export default function CheckoutProductCard(props) {
     const {selectedProducts,setSelectedProducts} = useContext(ProductsContext)
@@ -27,12 +28,16 @@ export default function CheckoutProductCard(props) {
         <Fragment>
             <div className="flex flex-wrap mx-10 py-5 border-b-2 border-gray-300">
                 <div className="flex items-center w-52 mr-5">
-                    <img className="rounded-xl" src={props.image}></img>
+                    <Link href={`/products/${props.id}`}>
+                        <img className="rounded-xl" src={props.image}></img>
+                    </Link>
                 </div>
                 <div className="flex items-center p-5 pl-0">
                     <div>
-                        <h1 className="font-bold text-xl">{props.name}</h1>
-                        <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet</p>
+                        <Link href={`/products/${props.id}`}>
+                            <h1 className="font-bold text-xl">{props.name}</h1>
+                            <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet</p>
+                        </Link>
                         <h1 className="font-semibold pt-2">${props.price}</h1>
                         
                         <div className="flex flex-row items-center">

@@ -13,7 +13,8 @@ export function CustomiserContextProvider({children}) {
         photo: "",
         colour: "",
         product: customProduct,
-    }})
+        size: "",
+    }})    
     return (
         <CustomiserContext.Provider value={{customColour, setCustomColour, customImageChosen, setCustomImageChosen, customProduct, setCustomProduct, form, setForm}}>
             {children}

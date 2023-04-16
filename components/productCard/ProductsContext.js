@@ -6,9 +6,9 @@ export const ProductsContext = createContext({})
 export function ProductsContextProvider({children}) {
     const [selectedProducts, setSelectedProducts] = useLocalStorageState("selectedProducts", {defaultValue: []})
     const [selectedCustomProducts, setSelectedCustomProducts] = useLocalStorageState("selectedCustomProducts", {defaultValue: []})
-    const [productClicked, setProductClicked] = useLocalStorageState("productClicked", {defaultValue: ""})
+
     return (
-        <ProductsContext.Provider value={{selectedProducts, setSelectedProducts, productClicked, setProductClicked, selectedCustomProducts, setSelectedCustomProducts}}>
+        <ProductsContext.Provider value={{selectedProducts, setSelectedProducts, selectedCustomProducts, setSelectedCustomProducts}}>
             {children}
         </ProductsContext.Provider>
     )

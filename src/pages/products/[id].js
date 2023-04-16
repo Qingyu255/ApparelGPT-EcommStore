@@ -1,21 +1,26 @@
 import { useContext, useEffect, useState } from "react"
 import { ProductsContext } from "../../../components/productCard/ProductsContext"
 import Layout from "../../../components/layout/Layout"
+import { useRouter } from 'next/router'
 
 export default function ProductPage() {
-    const {productClicked, setSelectedProducts} = useContext(ProductsContext)
+    const { setSelectedProducts } = useContext(ProductsContext)
     const [productData, setProductData] = useState([{}])
     const [loading, setLoading] = useState(true)
-
+    const router = useRouter()
+    
     useEffect(() => {
-        const id = productClicked
-        if (id.length > 0) {
+        const { id } = router.query
+        try {
             fetch("/api/products?ids="+id)
                 .then(response => response.json())
-                .then(json => setProductData(json))
-                .then(() => setLoading(false))
+                .then(json => setProductData(json))              
+        } catch(error) {
+            alert(error)
+        } finally {
+            setLoading(false)
         }
-    }, [productClicked])
+    }, [])
 
     function addProduct() {
         setSelectedProducts(prev => [...prev, productData[0]._id])

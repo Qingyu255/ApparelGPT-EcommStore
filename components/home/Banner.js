@@ -1,8 +1,5 @@
-
-const Banner = () => {
-
+export default function Banner() {
     const bannerRoute = "/dallEBanner.png"
-
     return (
         <div className='flex justify-center'>
             <div className='flex items-center justify-center relative m-5 sm:m-10'>
@@ -15,5 +12,3 @@ const Banner = () => {
         </div>
     )
 }
-
-export default Banner

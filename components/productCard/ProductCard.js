@@ -1,18 +1,9 @@
 import Link from "next/link"
-import { useContext } from "react"
-import { ProductsContext } from "./ProductsContext"
 
-function ProductCard(props) {
-    const {setProductClicked} = useContext(ProductsContext)
-    console.log(props.name)
-
-    function setProduct() {
-        setProductClicked(props._id)
-    }
-
+export default function ProductCard(props) {
     return (
         <div key={props._id} className="w-72 sm:w-80">
-            <Link href={`/products/${props._id}`} onClick={setProduct}>
+            <Link href={`/products/${props._id}`}>
                 <div className="py-3 px-3 bg-white shadow-md rounded-3xl cursor-pointer">
                     <div className="flex justify-center items-center">
                         <img className="rounded-3xl h-80 object-cover" src={props.image}/>
@@ -29,10 +20,8 @@ function ProductCard(props) {
                         </div>
                     </div>
                 </div>    
-            </Link> 
-            
+            </Link>   
         </div>
     )
 }
 
-export default ProductCard

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import Card from "../customiser/Card"
 import Loader from "../Loader"
+import Link from "next/link"
 
 const Featured = () => {
     const [loading, setLoading] = useState(false)
@@ -66,9 +67,11 @@ const Featured = () => {
                                         {product.prompt}
                                     </h1>
                                 </div>
-                                <div className="flex items-center px-2">                                   
-                                    <button className="bg-black rounded-xl text-white hover:bg-gray-500 px-4 py-1">Shop</button>
-                                    {/* Change to add to cart png */}
+                                <div className="flex items-center px-2">       
+                                    <Link href={`/customProducts/${product._id}`}>                     
+                                        <button className="bg-black rounded-xl text-white hover:bg-gray-500 px-4 py-1">Shop</button>
+                                        {/* Change to add to cart png */}
+                                    </Link>       
                                 </div>                                    
                             </div>
                             

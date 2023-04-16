@@ -1,12 +1,14 @@
-import { Fragment, useContext, useEffect, useState } from "react";
-import { CustomiserContext } from './CustomiserContext';
-
+import { Fragment, useContext, useEffect, useState } from "react"
+import { CustomiserContext } from './CustomiserContext'
 
 export default function DesignCard() {
   const [bgImg, setBgImg] = useState("")
-  const {customColour, form} = useContext(CustomiserContext)
+  const {customColour, form, setForm} = useContext(CustomiserContext)
 
   useEffect(() => {
+    // if (form.product === "Tote" && (form.colour != "White.jpg" || form.colour != "Beige.jpg" || form.colour != "Black.jpg")) {
+    //   setForm({ ...form, colour: "White.jpg" })
+    // }
     setBgImg(form.colour)
   }, [form.colour])
 

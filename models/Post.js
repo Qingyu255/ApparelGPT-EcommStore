@@ -6,6 +6,7 @@ const PostSchema = new Schema ({
     photo: String,
     product: String,
     colour: String,
+    size: String,
 })
 
 const Post = models?.posts || model("posts", PostSchema)

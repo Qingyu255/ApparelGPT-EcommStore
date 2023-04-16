@@ -44,6 +44,9 @@ export default function CreateDesign () {
 
     async function handleSubmit(e) {
         e.preventDefault()
+        if (form.product === "T-Shirt" && !form.size) {
+            return alert("Please select a size.")
+        }
         if (form.prompt && form.photo) {
             setLoading(true)
             try {
@@ -136,7 +139,7 @@ export default function CreateDesign () {
                         </button>
                     </div>
                     <div className="my-5">
-                        <p className="text-[#666e75] text-[14px]">Once you have created the design you want, you can share it with others on the page:</p>
+                        <p className="text-[#666e75] text-[14px]">Once you have created the design you want, you can share it for others to purchase too:</p>
                         <button
                             type="submit"
                             className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"

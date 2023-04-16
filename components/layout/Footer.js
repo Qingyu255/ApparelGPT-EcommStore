@@ -24,8 +24,7 @@ export default function Footer() {
                     </svg>
                     <span>Cart {selectedProducts.length + selectedCustomProducts.length}</span>
                 </div>
-            </Link>
-            
+            </Link>      
         </footer>
     )
 }

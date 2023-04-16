@@ -1,15 +1,12 @@
 import { Fragment, useContext } from 'react'
-import { ProductsContext } from '../productCard/ProductsContext'
+import Link from 'next/link'
 
 export default function Card ({ _id, name, prompt, photo, product, colour, purpose}) {
   // This Card is for the AI products overview/showcase
   const shirtRoute = "/products/blankShirts/" + colour
   const toteRoute = "/products/blankTotes/" + colour
-  const { selectedProducts, setSelectedProducts, selectedCustomProducts, setSelectedCustomProducts } = useContext(ProductsContext)
+  // const { selectedProducts, setSelectedProducts, selectedCustomProducts, setSelectedCustomProducts } = useContext(ProductsContext)
 
-  function handleAddToCart() {
-    setSelectedCustomProducts(prev => [...prev, _id])
-  }
   console.log(purpose + "hi")
   return (
     <Fragment>
@@ -31,9 +28,11 @@ export default function Card ({ _id, name, prompt, photo, product, colour, purpo
                       <div className="w-7 h-7 rounded-full object-cover bg-green-700 flex justify-center items-center text-white text-xs font-bold">{name[0]}</div>
                       <p className="text-white text-sm">{name}</p>
                     </div>
-                    <button type="button" onClick={handleAddToCart} className="outline-none bg-transparent border-none">
-                      <img src="/addToCart.png" alt="download" className="w-8 h-8 object-contain invert" />
-                    </button>
+                    <Link href={`/customProducts/${_id}`}>
+                      <button type="button" className="outline-none bg-transparent border-none">
+                        <img src="/addToCart.png" alt="download" className="w-8 h-8 object-contain invert" />
+                      </button>
+                    </Link>
                   </div>
                 </div>
                 }
@@ -52,9 +51,11 @@ export default function Card ({ _id, name, prompt, photo, product, colour, purpo
                       <div className="w-7 h-7 rounded-full object-cover bg-green-700 flex justify-center items-center text-white text-xs font-bold">{name[0]}</div>
                       <p className="text-white text-sm">{name}</p>
                     </div>
-                    <button type="button" onClick={handleAddToCart} className="outline-none bg-transparent border-none">
-                      <img src="/addToCart.png" alt="Add To Cart" className="w-8 h-8 object-contain invert" />
-                    </button>
+                    <Link href={`/customProducts/${_id}`}>
+                      <button type="button" className="outline-none bg-transparent border-none">
+                        <img src="/addToCart.png" alt="Add To Cart" className="w-8 h-8 object-contain invert" />
+                      </button>
+                    </Link>
                   </div>
                 </div>
                 }

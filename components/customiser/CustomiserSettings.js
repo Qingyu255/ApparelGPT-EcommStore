@@ -20,11 +20,15 @@ export default function CustomiserSettings() {
   }
 
   function handleProductType(e) {
-    setForm({ ...form, product: e.target.name })
+    if (form.product === "T-Shirt" && e.target.name === "Tote") {
+      setForm({ ...form, product: e.target.name, colour: "White.jpg", size: "" })
+    } else{
+      setForm({ ...form, product: e.target.name })
+    }
   }
 
   function handleProductSize(e) {
-
+    setForm({ ...form, size: e.target.name })
   }
 
   return (
@@ -43,12 +47,12 @@ export default function CustomiserSettings() {
             <div>
               <h1 className='font-semibold sm:text-xl'>Choose Size:</h1>
               <div className='flex flex-wrap my-2 sm:my-4 gap-2 sm:w-40'>
-                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm' >XS</button>
-                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm'>S</button>
-                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm'>M</button>
-                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm'>L</button>
-                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm'>XL</button>
-                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm'>2XL</button>                           
+                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm' onClick={handleProductSize} name="XS">XS</button>
+                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm' onClick={handleProductSize} name="S">S</button>
+                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm' onClick={handleProductSize} name="M">M</button>
+                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm' onClick={handleProductSize} name="L">L</button>
+                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm' onClick={handleProductSize} name="XL">XL</button>
+                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm' onClick={handleProductSize} name="2XL">2XL</button>                           
               </div>
             </div>
           }

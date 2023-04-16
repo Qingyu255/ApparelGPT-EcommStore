@@ -41,14 +41,15 @@ export default async function handle(req, res) {
   } else {
     // This block is for req.method === "POST"
     try {
-      const { name, prompt, photo, colour, product } = req.body
+      const { name, prompt, photo, colour, product, size } = req.body
       const photoUrl = await cloudinary.uploader.upload(photo)
       const newPost = await Post.create({
         name,
         prompt,
         photo: photoUrl.url,
-        colour: colour,
-        product: product,
+        colour,
+        product,
+        size,
         
       })
       res.status(200).json({ success: true, data: newPost })

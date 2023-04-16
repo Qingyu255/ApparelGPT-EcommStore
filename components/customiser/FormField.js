@@ -1,11 +1,8 @@
-import React from 'react'
-
-const FormField = ({labelName, type, name, placeholder, value, handleChange, isSurpriseMe, handleSurpriseMe}) => {
+export default function FormField({labelName, type, name, placeholder, value, handleChange, isSurpriseMe, handleSurpriseMe}) {
   return (
     <div>
         <div className='flex items-center gap-2'>
-            <label htmlFor={name} className='block text-lg font-medium text-gray-900 mb-1'>{labelName}</label>
-            
+            <label htmlFor={name} className='block text-lg font-medium text-gray-900 mb-1'>{labelName}</label>        
         </div>
         <div>
             <input type={type} id={name} name={name} placeholder={placeholder} value={value} onChange={handleChange} required 
@@ -19,5 +16,3 @@ const FormField = ({labelName, type, name, placeholder, value, handleChange, isS
     </div>
   )
 }
-
-export default FormField

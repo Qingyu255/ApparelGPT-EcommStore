@@ -58,7 +58,7 @@ export default function Carousel(props) {
                 </Swiper>   
             </div>        
             : 
-            <div className='flex flex-grow overflow-x-auto snap-x 2xl:justify-center gap-8'>
+            <div className='flex flex-grow overflow-x-auto snap-x 2xl:justify-center gap-8 pb-2'>
                 {postsData.map((post) => 
                 <div key={post._id} className="snap-center">
                     <Card {...post}/>

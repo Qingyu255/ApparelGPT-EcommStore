@@ -5,7 +5,6 @@ const configuration = new Configuration({
   })
 const openai = new OpenAIApi(configuration)
 
-
 export default async function handler(req, res) {
     try {
         const { prompt } = req.body
