@@ -77,9 +77,6 @@ const Featured = () => {
                             
                         </div>
                     )}
-                    {/* <div className="flex items-center justify-center">
-                        <h1 className="mx-1 p-5 rounded-lg border-2 border-slate-300 whitespace-nowrap">Shop More Designs</h1>                        
-                    </div> */}
                 </div>) : (
                 <div className="flex justify-center">
                     <Loader />

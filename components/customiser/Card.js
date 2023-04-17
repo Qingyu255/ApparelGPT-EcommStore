@@ -10,7 +10,7 @@ export default function Card ({ _id, name, prompt, photo, product, colour, purpo
   console.log(purpose + "hi")
   return (
     <Fragment>
-      <div className='flex'>
+      <div className='flex justify-center items-center'>
         <div className="flex items-center w-72 sm:w-96">
           <div>
             {product === "Tote" ? 
@@ -25,7 +25,7 @@ export default function Card ({ _id, name, prompt, photo, product, colour, purpo
                   <p className="text-white text-sm overflow-y-auto prompt">{prompt}</p>
                   <div className="mt-3 flex justify-between items-center gap-2">
                     <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-full object-cover bg-green-700 flex justify-center items-center text-white text-xs font-bold">{name[0]}</div>
+                      <div className="w-7 h-7 rounded-full object-cover bg-cyan-300 flex justify-center items-center text-black text-xs font-bold">{name[0]}</div>
                       <p className="text-white text-sm">{name}</p>
                     </div>
                     <Link href={`/customProducts/${_id}`}>
@@ -48,7 +48,7 @@ export default function Card ({ _id, name, prompt, photo, product, colour, purpo
                   <p className="text-white text-sm overflow-y-auto prompt">{prompt}</p>
                   <div className="mt-3 flex justify-between items-center gap-2">
                     <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-full object-cover bg-green-700 flex justify-center items-center text-white text-xs font-bold">{name[0]}</div>
+                      <div className="w-7 h-7 rounded-full object-cover bg-cyan-300 flex justify-center items-center text-black text-xs font-bold">{name[0]}</div>
                       <p className="text-white text-sm">{name}</p>
                     </div>
                     <Link href={`/customProducts/${_id}`}>

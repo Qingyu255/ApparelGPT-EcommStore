@@ -19,7 +19,6 @@ export default function CheckoutPage() {
                 await fetch("/api/products?ids="+uniqueIds.join(","))
                     .then(response => response.json())
                     .then(json => setNonCustomProductsData(json))
-                    // .then(() => setLoading(false))
             }
             if (uniqueCustomIds.length > 0) {
                 try {

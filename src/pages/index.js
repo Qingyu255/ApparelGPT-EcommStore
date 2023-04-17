@@ -21,7 +21,7 @@ export default function Home({products, posts}) {
           <div key={categoryName}>
             <div className="py-5">
               <h2 className="text-2xl md:text-4xl font-bold">{categoryName}</h2>
-              <p className="mt-1 text-gray-400">Human-designed</p>
+              <p className="mt-1 text-sm sm:text-md text-gray-400">Human-designed</p>
             </div>
             <div className="flex overflow-x-auto snap-x pb-3 gap-5 xl:justify-center">
               {products.filter(p => p.category === categoryName).map(product =>(

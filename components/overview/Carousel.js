@@ -4,12 +4,18 @@ import "swiper/css"
 import "swiper/css/navigation"
 import { Navigation } from "swiper"
 import Card from "../customiser/Card"
+import Link from "next/link"
 
 export default function Carousel(props) {
     const [windowSize, setWindowSize] = useState({
         width: window.innerWidth,
         height: window.innerHeight,
     })
+
+    function shuffleArray(arr) {
+        return (arr.sort(() => Math.random() - 0.5))
+    }
+
     useEffect(() => {
         function handleResize() {
           setWindowSize({
@@ -23,7 +29,7 @@ export default function Carousel(props) {
         };
       }, []);
 
-    var postsData = props.posts
+    var postsData = shuffleArray(props.posts)
     if (postsData.length > 6) {
         postsData = postsData.slice(0, 6)
     }
@@ -52,7 +58,9 @@ export default function Carousel(props) {
                     )}           
                     <SwiperSlide>
                         <div className="flex items-center justify-center h-[500px]">
-                            <button className="p-5 rounded-lg border-2 border-slate-300 whitespace-nowrap hover:bg-gray-200">Shop More Designs</button>  
+                            <Link href="/allProducts">
+                                <button className="p-5 rounded-lg border-2 border-slate-300 whitespace-nowrap hover:bg-gray-200">Shop More Designs</button>
+                            </Link>
                         </div>
                     </SwiperSlide>                          
                 </Swiper>   
@@ -60,7 +68,7 @@ export default function Carousel(props) {
             : 
             <div className='flex flex-grow overflow-x-auto snap-x 2xl:justify-center gap-8 pb-2'>
                 {postsData.map((post) => 
-                <div key={post._id} className="snap-center">
+                <div key={post._id} className="snap-start">
                     <Card {...post}/>
                 </div>
                 )}                

@@ -22,8 +22,8 @@ export default function Bar() {
                             </Link>
                             {/* <!-- Nav Links --> */}
                             <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-                                <li><Link class="hover:text-gray-200" href="/totes">Totes</Link></li>
-                                <li><Link class="hover:text-gray-200" href="/shirts">Shirts</Link></li>
+                                <li><Link class="hover:text-gray-200" href="/allProducts">Totes</Link></li>
+                                <li><Link class="hover:text-gray-200" href="/allProducts">Shirts</Link></li>
                                 <li><Link class="hover:text-gray-200" href="/customise">Customise with AI</Link></li>
                                 <li><Link class="hover:text-gray-200" href="/contacts">About Us</Link></li>
                             </ul>

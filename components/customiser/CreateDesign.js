@@ -64,8 +64,6 @@ export default function CreateDesign () {
                 // router.push("/")
 
             } catch (error) {
-                console.log(error)
-                console.log("oop")
                 alert(error)
             } finally {
                 setLoading(false)

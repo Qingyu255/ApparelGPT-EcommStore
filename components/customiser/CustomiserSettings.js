@@ -3,7 +3,6 @@ import { CirclePicker } from 'react-color'
 import { CustomiserContext } from './CustomiserContext'
 
 export default function CustomiserSettings() {
-  const { customColour, setCustomColour, linkInput, setLinkInput, setAddPicture } = useContext(CustomiserContext)
   const { form, setForm } = useContext(CustomiserContext)
 
   function handleColorChange(hex) {
@@ -14,8 +13,6 @@ export default function CustomiserSettings() {
         "#686b70": "Grey.jpg",
         "#2d3041": "Navy.jpg",
     }
-    
-    setCustomColour(colours[hex])
     setForm({ ...form, colour: colours[hex] })
   }
 
@@ -38,21 +35,22 @@ export default function CustomiserSettings() {
           <div>
             <h1 className='font-semibold sm:text-xl'>Pick your Product:</h1>
             <div className='flex flex-wrap my-2 sm:my-4'>
-              <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 mr-1 text-xs sm:text-sm' name="T-Shirt" onClick={handleProductType}>T-Shirt</button>
-              <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 ml-2 text-xs sm:text-sm' name="Tote" onClick={handleProductType}>Tote</button>
+              <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 py-1 mr-1 text-xs sm:text-sm' name="T-Shirt" onClick={handleProductType}>T-Shirt</button>
+              <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 py-1 ml-2 text-xs sm:text-sm' name="Tote" onClick={handleProductType}>Tote</button>
             </div>
           </div>
           <div>
           {form.product != "Tote" &&
             <div>
               <h1 className='font-semibold sm:text-xl'>Choose Size:</h1>
-              <div className='flex flex-wrap my-2 sm:my-4 gap-2 sm:w-40'>
-                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm' onClick={handleProductSize} name="XS">XS</button>
-                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm' onClick={handleProductSize} name="S">S</button>
-                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm' onClick={handleProductSize} name="M">M</button>
-                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm' onClick={handleProductSize} name="L">L</button>
-                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm' onClick={handleProductSize} name="XL">XL</button>
-                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 text-xs sm:text-sm' onClick={handleProductSize} name="2XL">2XL</button>                           
+              <p className="text-xs sm:text-sm">{form.size}</p>
+              <div className='grid grid-cols-3 my-2 sm:my-4 gap-2'>
+                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 py-1 text-xs sm:text-sm' onClick={handleProductSize} name="XS">XS</button>
+                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 py-1 text-xs sm:text-sm' onClick={handleProductSize} name="S">S</button>
+                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 py-1 text-xs sm:text-sm' onClick={handleProductSize} name="M">M</button>
+                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 py-1 text-xs sm:text-sm' onClick={handleProductSize} name="L">L</button>
+                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 py-1 text-xs sm:text-sm' onClick={handleProductSize} name="XL">XL</button>
+                <button className='bg-slate-300 hover:bg-neutral-200 rounded-lg px-2 py-1 text-xs sm:text-sm' onClick={handleProductSize} name="2XL">2XL</button>                           
               </div>
             </div>
           }
@@ -73,7 +71,7 @@ export default function CustomiserSettings() {
                 width="150px"
               />
             }
-            <p className='text-xs sm:text-sm my-2'>{customColour.split(".")[0]}</p>
+            <p className='text-xs sm:text-sm my-2'>{form.colour.split(".")[0]}</p>
           </div> 
       </div>
     </Fragment>
