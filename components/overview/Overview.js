@@ -11,7 +11,7 @@ function RenderCards({data, title, home, carousel}) {
         console.log(data)
         return (
             productTypes.map(productType => (
-                <div key={productType} className='flex flex-col mx-10 mt-10'>
+                <div id={productType} key={productType} className='flex flex-col mx-10 mt-10'>
                     <div className='mt-5 mb-10'>
                         <h2 className="text-2xl md:text-4xl font-bold">{productType}s {home && "by Dall E"}</h2>
                         {/* {home && <p className='text-gray-400 text-sm sm:text-md mt-1'>See what others purchased</p>} */}
@@ -19,7 +19,7 @@ function RenderCards({data, title, home, carousel}) {
                     <div>
                         {carousel?
                         <div>                      
-                            <Carousel posts={data.filter(post => post.product === productType)} />
+                            <Carousel productType={productType} posts={data.filter(post => post.product === productType)} />
                         </div>                       
                         : 
                         <div className='grid lg:grid-cols-2 xl:grid-cols-3 justify-center gap-y-16 2xl:px-[150px]'>
@@ -43,6 +43,17 @@ export default function Overview (props) {
     const [searchText, setSearchText] = useState("")
     const [searchTimeout, setSearchTimeout] = useState(null)
     const [searchedResults, setSearchedResults] = useState(null)
+
+    useEffect(() => {
+        const hash = window.location.hash
+        console.log(hash)
+        if (hash) {
+          const element = document.querySelector(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+    }, [loading])
 
     async function fetchPostsData() {
         setLoading(true)
@@ -79,11 +90,12 @@ export default function Overview (props) {
             setSearchedResults(searchResult);
           }, 500),
         )
-      }
+    }
+ 
 
   return (
     <Fragment>
-        <div className='border-t-2 2xl:mx-10'>
+        <div className='border-t-2 2xl:mx-10 mb-10 pb-10'>
             {props.home?
                 <div>
                     {/* <h2 className="text-3xl font-bold py-5">Designed By AI:</h2> */}

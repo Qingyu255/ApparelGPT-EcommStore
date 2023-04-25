@@ -1,4 +1,4 @@
-import { Fragment, useContext } from 'react'
+import { Fragment } from 'react'
 import Link from 'next/link'
 
 export default function Card ({ _id, name, prompt, photo, product, colour, purpose}) {
@@ -7,7 +7,6 @@ export default function Card ({ _id, name, prompt, photo, product, colour, purpo
   const toteRoute = "/products/blankTotes/" + colour
   // const { selectedProducts, setSelectedProducts, selectedCustomProducts, setSelectedCustomProducts } = useContext(ProductsContext)
 
-  console.log(purpose + "hi")
   return (
     <Fragment>
       <div className='flex justify-center items-center'>
@@ -15,7 +14,7 @@ export default function Card ({ _id, name, prompt, photo, product, colour, purpo
           <div>
             {product === "Tote" ? 
               <div className="flex items-center justify-center group relative">
-                <img src={toteRoute} className={`${purpose != "featured" && "border-2 border-slate-300 rounded-xl"}`}></img>
+                <img src={toteRoute} className={`${purpose != "featured" && "border-2 border-[#6b6e70] rounded-xl"}`}></img>
                 <div className="w-32 h-16 sm:w-48 sm:h-24 absolute flex justify-center">
                   <img className="rounded-md absolute h-40 sm:h-52" src={photo}></img>
                 </div>
@@ -39,7 +38,7 @@ export default function Card ({ _id, name, prompt, photo, product, colour, purpo
               </div>
             :
               <div className="flex items-center justify-center group relative">
-                <img src={shirtRoute} className={`${purpose != "featured" && "border-2 border-slate-300 rounded-xl"}`}></img>
+                <img src={shirtRoute} className={`${purpose != "featured" && "border-2 border-[#6b6e70] rounded-xl"}`}></img>
                 <div className="w-32 h-48 sm:w-40 sm:h-60 absolute flex justify-center">
                   <img className="rounded-md absolute h-40 sm:h-52" src={photo}></img>
                 </div>

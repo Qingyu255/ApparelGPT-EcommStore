@@ -4,6 +4,7 @@ import { ProductsContext } from "../productCard/ProductsContext"
 
 export default function Bar() {
     const {selectedProducts, selectedCustomProducts} = useContext(ProductsContext)
+
     return (
         <Fragment>
             {/* <!-- component -->
@@ -12,7 +13,7 @@ export default function Bar() {
             <div class="flex flex-wrap place-items-center">
                 <section class="relative mx-auto">
                     {/* <!-- navbar --> */}
-                    <nav class="flex justify-between bg-gray-900 text-white w-screen">
+                    <nav class="flex justify-between bg-[#222629] text-white w-screen">
                         <div class="px-10 xl:px-12 py-6 flex w-full items-center">
                         
                             <Link class="text-3xl font-bold font-heading" href="/">
@@ -22,10 +23,10 @@ export default function Bar() {
                             </Link>
                             {/* <!-- Nav Links --> */}
                             <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-                                <li><Link class="hover:text-gray-200" href="/allProducts">Totes</Link></li>
-                                <li><Link class="hover:text-gray-200" href="/allProducts">Shirts</Link></li>
+                                <li><Link class="hover:text-gray-200" href="/customise#Tote" name="Tote">Totes</Link></li>
+                                <li><Link class="hover:text-gray-200" href="/customise#T-Shirt" name="T-Shirt">Shirts</Link></li>
                                 <li><Link class="hover:text-gray-200" href="/customise">Customise with AI</Link></li>
-                                <li><Link class="hover:text-gray-200" href="/contacts">About Us</Link></li>
+                                {/* <li><Link class="hover:text-gray-200" href="/contacts">About Us</Link></li> */}
                             </ul>
                             {/* <!-- Header Icons --> */}
                             <div class="hidden xl:flex items-center space-x-5 items-center">

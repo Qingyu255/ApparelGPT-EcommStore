@@ -58,7 +58,7 @@ const Featured = () => {
                 {!loading? 
                 (<div className="flex overflow-x-auto snap-x gap-8">
                     {featuredProducts.map((product) => 
-                        <div key={product._id} className="flex flex-col border-2 border-slate-300 w-72 sm:w-96 mb-2 snap-center">
+                        <div key={product._id} className="flex flex-col border-2 border-[#6b6e70] w-72 sm:w-96 mb-2 snap-center">
                             <Card key={product._id} {...product} purpose="featured" />                            
                             <div className="flex flex-row pb-4">
                                 <div className="grow">                                  

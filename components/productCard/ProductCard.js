@@ -4,7 +4,7 @@ export default function ProductCard(props) {
     return (
         <div key={props._id} className="w-72 sm:w-80">
             <Link href={`/products/${props._id}`}>
-                <div className="py-3 px-3 bg-white shadow-md rounded-3xl cursor-pointer">
+                <div className="py-3 px-3 bg-white border-2 border-[#6b6e70] rounded-3xl cursor-pointer">
                     <div className="flex justify-center items-center">
                         <img className="rounded-3xl h-80 object-cover" src={props.image}/>
                     </div>

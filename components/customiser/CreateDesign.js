@@ -12,10 +12,6 @@ export default function CreateDesign () {
     const [loading, setLoading] = useState(false)
     const { setSelectedCustomProducts } = useContext(ProductsContext)
 
-    function handleAddToCart() {
-      setCustomProducts(prev => [...prev, _id])
-    }
-
     async function generateImage() {
         if (form.prompt) {
             try {
@@ -132,7 +128,7 @@ export default function CreateDesign () {
                         )}
                     </div>
                     <div className="mt-1 flex gap-5">
-                        <button type='button' onClick={generateImage} className=" text-white bg-gray-800 hover:bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+                        <button type='button' onClick={generateImage} className=" text-white bg-[#222629] hover:bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center">
                             {generatingImg? "Generating..." : "Generate Image"}
                         </button>
                     </div>
@@ -140,7 +136,7 @@ export default function CreateDesign () {
                         <p className="text-[#666e75] text-[14px]">Once you have created the design you want, you can share it for others to purchase too:</p>
                         <button
                             type="submit"
-                            className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                            className="mt-3 text-white bg-[#222629] hover:bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                         >
                             {loading ? 'Sharing...' : 'Add To Cart and Share with the Community'}
                         </button>

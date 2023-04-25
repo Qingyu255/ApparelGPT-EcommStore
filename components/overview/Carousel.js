@@ -43,7 +43,7 @@ export default function Carousel(props) {
     return (
         <Fragment>
             {windowSize.width > 1320 ?
-            <div>
+            <div className="">
                 <Swiper
                     navigation={true}
                     modules={[Navigation]}
@@ -51,15 +51,15 @@ export default function Carousel(props) {
                 >
                     {iterable.map(productsArray =>                               
                         <SwiperSlide>
-                            <div className=" flex object-fill gap-5 justify-center">
+                            <div className="flex object-fill gap-5 justify-center">
                                 {productsArray.map((post) => <Card key={post._id} {...post}/>)}
                             </div>      
                         </SwiperSlide>                                              
                     )}           
                     <SwiperSlide>
                         <div className="flex items-center justify-center h-[500px]">
-                            <Link href="/allProducts">
-                                <button className="p-5 rounded-lg border-2 border-slate-300 whitespace-nowrap hover:bg-gray-200">Shop More Designs</button>
+                            <Link href={`customise#${props.productType}`}>
+                                <button className="p-5 rounded-lg border-2 border-[#6b6e70] whitespace-nowrap hover:bg-gray-200">Shop More Designs</button>
                             </Link>
                         </div>
                     </SwiperSlide>                          
