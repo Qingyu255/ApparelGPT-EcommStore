@@ -5,7 +5,7 @@ import { ProductsContext } from "../productCard/ProductsContext"
 export default function Bar() {
     const {selectedProducts, selectedCustomProducts} = useContext(ProductsContext)
     const [isSidebarOpen, setSidebarOpen] = useState(false)
-    const logoText = "Apparel GPT"
+    const logoText = "AI DRIPS"
 
     useEffect(() => {
         const handleToggleSidebar = () => {
