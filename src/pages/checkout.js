@@ -6,7 +6,7 @@ import { ProductsContext } from "../../components/productCard/ProductsContext"
 import useLocalStorageState from "use-local-storage-state"
 
 export default function CheckoutPage() {
-    const { selectedProducts, selectedCustomProducts } = useContext(ProductsContext)
+    const { selectedProducts, selectedCustomProducts, nonCustomProductsNew } = useContext(ProductsContext)
     const [nonCustomProductsData, setNonCustomProductsData] = useLocalStorageState("nonCustomProductsData", {defaultValue: []})
     const [customProductsData, setCustomProductsData] = useLocalStorageState("customProductsData", {defaultValue: []})
     const [loading, setLoading] = useState(true)
@@ -46,10 +46,8 @@ export default function CheckoutPage() {
 
     // Calculate total price to be paid
     var totalSum = 0
-    selectedProducts.map(productId => totalSum+=nonCustomProductsData.find(productData => productData._id === productId).price)
+    selectedProducts.map(productId => totalSum+=nonCustomProductsNew.find(productData => productData._id === productId).price)
     selectedCustomProducts.map(() => totalSum+=20)
-
-    console.log(nonCustomProductsData)
 
     return (
         <Layout>

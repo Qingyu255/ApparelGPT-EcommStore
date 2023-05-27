@@ -35,8 +35,8 @@ export default function CustomiserSettings() {
           <div>
             <h1 className='font-semibold sm:text-xl'>Pick your Product:</h1>
             <div className='flex flex-wrap my-2 sm:my-4'>
-              <button className='bg-[#8fc1e3] hover:bg-slate-400 rounded-lg px-2 py-1 mr-1 text-xs sm:text-sm font-semibold' name="T-Shirt" onClick={handleProductType}>T-Shirt</button>
-              <button className='bg-[#8fc1e3] hover:bg-slate-400 rounded-lg px-2 py-1 ml-2 text-xs sm:text-sm font-semibold' name="Tote" onClick={handleProductType}>Tote</button>
+              <button className='bg-[#c3c6c9] hover:bg-slate-400 rounded-lg px-2 py-1 mr-1 text-xs sm:text-sm font-semibold' name="T-Shirt" onClick={handleProductType}>T-Shirt</button>
+              <button className='bg-[#c3c6c9] hover:bg-slate-400 rounded-lg px-2 py-1 ml-2 text-xs sm:text-sm font-semibold' name="Tote" onClick={handleProductType}>Tote</button>
             </div>
           </div>
           <div>
@@ -45,12 +45,12 @@ export default function CustomiserSettings() {
               <h1 className='font-semibold sm:text-xl'>Choose Size:</h1>
               <p className="text-xs sm:text-sm">{form.size}</p>
               <div className='grid grid-cols-3 my-2 sm:my-4 gap-2'>
-                <button className='bg-[#8fc1e3] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="XS">XS</button>
-                <button className='bg-[#8fc1e3] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="S">S</button>
-                <button className='bg-[#8fc1e3] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="M">M</button>
-                <button className='bg-[#8fc1e3] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="L">L</button>
-                <button className='bg-[#8fc1e3] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="XL">XL</button>
-                <button className='bg-[#8fc1e3] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="2XL">2XL</button>                           
+                <button className='bg-[#c3c6c9] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="XS">XS</button>
+                <button className='bg-[#c3c6c9] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="S">S</button>
+                <button className='bg-[#c3c6c9] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="M">M</button>
+                <button className='bg-[#c3c6c9] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="L">L</button>
+                <button className='bg-[#c3c6c9] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="XL">XL</button>
+                <button className='bg-[#c3c6c9] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="2XL">2XL</button>                           
               </div>
             </div>
           }

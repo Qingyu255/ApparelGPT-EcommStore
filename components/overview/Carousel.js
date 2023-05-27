@@ -30,6 +30,7 @@ export default function Carousel(props) {
       }, []);
 
     var postsData = shuffleArray(props.posts)
+    
     if (postsData.length > 6) {
         postsData = postsData.slice(0, 6)
     }

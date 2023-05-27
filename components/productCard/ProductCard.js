@@ -6,7 +6,7 @@ export default function ProductCard(props) {
             <Link href={`/products/${props._id}`}>
                 <div className="py-3 px-3 bg-white border-2 border-[#6b6e70] rounded-3xl cursor-pointer">
                     <div className="flex justify-center items-center">
-                        <img className="rounded-3xl h-80 object-cover" src={props.image}/>
+                        <img className="rounded-3xl h-80 object-cover" src={props.image} alt="Tote Bag"/>
                     </div>
                     <div className="mx-3">
                         <div className="mt-2">

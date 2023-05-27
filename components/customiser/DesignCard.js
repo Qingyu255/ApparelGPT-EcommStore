@@ -23,14 +23,14 @@ export default function DesignCard() {
 
             {form.product === "Tote" ? 
             <div className="flex items-center justify-center relative">
-              <img src={toteRoute} className="rounded-xl"></img>
+              <img src={toteRoute} alt="Please Create a Design" className="rounded-xl"></img>
               <div className="w-32 h-16 sm:w-48 sm:h-24 absolute flex justify-center">
                 <img className="rounded-md absolute h-40 sm:h-52" src={form.photo}></img>
               </div>
             </div>
             :
             <div className="flex items-center justify-center relative">
-              <img src={shirtRoute} className="rounded-xl"></img>
+              <img src={shirtRoute} alt="Please Create a Design" className="rounded-xl"></img>
               <div className="w-32 h-48 sm:w-40 sm:h-60 absolute flex justify-center">
                 <img className="rounded-md absolute h-40 sm:h-52" src={form.photo}></img>
               </div>

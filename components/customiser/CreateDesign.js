@@ -3,14 +3,25 @@ import Loader from '../Loader'
 import FormField from './FormField'
 import { getRandomPrompt } from '../../utils'
 import { CustomiserContext } from './CustomiserContext'
-import { useRouter } from 'next/navigation'
 import { ProductsContext } from '../productCard/ProductsContext'
 
 export default function CreateDesign () {
     const { form, setForm } = useContext(CustomiserContext)
     const [generatingImg, setGeneratingImage] = useState(false)
+    const [addToBagButtonText, setAddToBagButtonText] = useState("Add To Cart and Share with the Community")
     const [loading, setLoading] = useState(false)
     const { setSelectedCustomProducts } = useContext(ProductsContext)
+
+    setForm(
+        {
+            name: "",
+            prompt: "frank ocean performing on concert stage at night",
+            photo: "http://res.cloudinary.com/dq4aaqbme/image/upload/v1681834950/ejrp0tmuhui1v5lln30z.png",
+            colour: "Black.jpg",
+            product: "T-Shirt",
+            size: "",
+        }
+    )
 
     async function generateImage() {
         if (form.prompt) {
@@ -26,7 +37,6 @@ export default function CreateDesign () {
                 })
 
                 const data = await response.json()
-                
                 setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` })
             } catch(error) {
                 alert(error)
@@ -56,8 +66,11 @@ export default function CreateDesign () {
                 const postData = await response.json()
                 console.log(postData)
                 setSelectedCustomProducts(prev => [...prev, postData.data._id])
+                setAddToBagButtonText("Added to Bag Successfully")
+                setTimeout(() => {
+                    setAddToBagButtonText("Add To Cart and Share with the Community")
+                }, 2000)
                 alert("success")
-                // router.push("/")
 
             } catch (error) {
                 alert(error)
@@ -82,8 +95,8 @@ export default function CreateDesign () {
   return (
     <div className='mx-10 sm:m-0 max-w-lg'>
         <div>
-            <h1 className="text-2xl font-bold">Create a Shirt/Tote Design With AI:</h1>
-            <p className='w-auto py-2 text-sm text-neutral-500'>Let the OpenAI DALL-E AI design a visually stunning graphic for your Apparel.</p>        
+            <h1 className="text-2xl font-bold pt-10">Create a Design With AI:</h1>
+            <p className='w-auto py-2 text-sm text-neutral-500'>Let OpenAI's DALL-E AI image generation model design a print for your Apparel.</p>        
         </div>
         <div>
             <form className='mt-4 max-w-3xl' onSubmit={handleSubmit}>
@@ -133,12 +146,12 @@ export default function CreateDesign () {
                         </button>
                     </div>
                     <div className="my-5">
-                        <p className="text-[#666e75] text-[14px]">Once you have created the design you want, you can share it for others to purchase too:</p>
+                        <p className="text-[#666e75] text-[14px]">Share your design with others</p>
                         <button
                             type="submit"
                             className="mt-3 text-white bg-[#222629] hover:bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
                         >
-                            {loading ? 'Sharing...' : 'Add To Cart and Share with the Community'}
+                            {loading ? 'Sharing...' : addToBagButtonText}
                         </button>
                     </div> 
                 </div>

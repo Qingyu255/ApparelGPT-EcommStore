@@ -20,6 +20,11 @@ export async function findAllPosts() {
   return Post.find().exec()
 }
 
+export async function findOnePost(id) {
+  return Post.find({"_id": {$in: id}}).exec()
+}
+
+
 export default async function handle(req, res) {
   // await to wait for connection
   await initMongoose()

@@ -5,6 +5,10 @@ export async function findAllProducts() {
     return Product.find().exec()
 }
 
+export async function findOneProduct(id) {
+    return Product.find({"_id": {$in: id}}).exec()
+}
+
 export default async function handle(req, res) {
     // await to wait for connection
     await initMongoose()

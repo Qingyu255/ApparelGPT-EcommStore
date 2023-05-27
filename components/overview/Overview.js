@@ -11,10 +11,9 @@ function RenderCards({data, title, home, carousel}) {
         console.log(data)
         return (
             productTypes.map(productType => (
-                <div id={productType} key={productType} className='flex flex-col mx-10 mt-10'>
-                    <div className='mt-5 mb-10'>
-                        <h2 className="text-2xl md:text-4xl font-bold">{productType}s {home && "by Dall E"}</h2>
-                        {/* {home && <p className='text-gray-400 text-sm sm:text-md mt-1'>See what others purchased</p>} */}
+                <div id={productType} key={productType} className='flex flex-col mx-10 mt-10 pt-16'>
+                    <div className='mt-10 mb-10'>
+                        <h2 className="text-3xl md:text-4xl font-bold">{productType}s {home && "by Dall E"}</h2>
                     </div>
                     <div>
                         {carousel?

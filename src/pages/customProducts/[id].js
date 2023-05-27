@@ -1,41 +1,24 @@
 import { useContext, useEffect, useState } from "react"
+import { initMongoose } from "../../../lib/mongoose"
+import { findOnePost } from "../api/post"
 import { ProductsContext } from "../../../components/productCard/ProductsContext"
 import Layout from "../../../components/layout/Layout"
 import Card from "../../../components/customiser/Card"
-import { useRouter } from 'next/router'
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/navigation"
 import { Navigation } from "swiper"
 import { CirclePicker } from 'react-color'
 
-export default function CustomProductPage() {
+export default function CustomProductPage({ product }) {
     const {setSelectedCustomProducts} = useContext(ProductsContext)
-    const [productData, setProductData] = useState([{}])
-    const [loading, setLoading] = useState(true)
-    const router = useRouter()
-
+    const [productData, setProductData] = useState({})
+    const [addToBagButtonText, setAddToBagButtonText] = useState("Add To Bag")
+    const [loading, setLoading] = useState(false)
+    
     useEffect(() => {
-        async function fetchProduct() {
-            try {
-                const { id } = router.query     
-                const response = await fetch("/api/post?ids="+id, {
-                    method: "GET",
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                })
-                if (response.ok) {
-                    const fetchedData = await response.json()
-                    setProductData(fetchedData.data[0])
-                }
-            } catch(error) {
-                alert(error)
-            } finally {
-                setLoading(false)
-            }
-        }
-        fetchProduct()
+        setProductData(product[0])
+
     }, [])
 
     async function handleAddToCart(e) {
@@ -55,8 +38,11 @@ export default function CustomProductPage() {
             const postData = await response.json()
             console.log(postData)
             setSelectedCustomProducts(prev => [...prev, postData.data._id])
-            alert("success")
-            // router.push("/")
+            setAddToBagButtonText("Added to Bag Successfully")
+            setTimeout(() => {
+                setAddToBagButtonText('Add To Bag');
+              }, 2000)
+
 
         } catch (error) {
             alert(error)
@@ -117,12 +103,12 @@ export default function CustomProductPage() {
                                     <h1 className='font-semibold sm:text-xl'>Choose Size: </h1>
                                     <p className="text-xs sm:text-sm">{productData.size}</p>
                                     <div className='grid grid-cols-3 my-2 sm:my-4 gap-2'>
-                                        <button className='bg-[#8fc1e3] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="XS">XS</button>
-                                        <button className='bg-[#8fc1e3] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="S">S</button>
-                                        <button className='bg-[#8fc1e3] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="M">M</button>
-                                        <button className='bg-[#8fc1e3] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="L">L</button>
-                                        <button className='bg-[#8fc1e3] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="XL">XL</button>
-                                        <button className='bg-[#8fc1e3] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="2XL">2XL</button>                           
+                                        <button className='bg-[#c3c6c9] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="XS">XS</button>
+                                        <button className='bg-[#c3c6c9] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="S">S</button>
+                                        <button className='bg-[#c3c6c9] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="M">M</button>
+                                        <button className='bg-[#c3c6c9] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="L">L</button>
+                                        <button className='bg-[#c3c6c9] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="XL">XL</button>
+                                        <button className='bg-[#c3c6c9] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="2XL">2XL</button>                           
                                     </div>
                                 </div>
                             }
@@ -142,12 +128,15 @@ export default function CustomProductPage() {
                                         width="150px"
                                     />
                                 }
-                                <p className='text-xs sm:text-sm my-2'>{productData.colour.split(".")[0]}</p>
+                                {productData.color &&
+                                    <p className='text-xs sm:text-sm my-2'>{productData.colour.split(".")[0]}</p>
+                                }
+                                
                             </div> 
                         
                             <div className="flex flex-col pt-2">
                                 <div className="flex justify-center grow py-2">
-                                    <button onClick={handleAddToCart} className="bg-black rounded-3xl text-white hover:bg-gray-500 grow py-2">Add to Bag</button>
+                                    <button onClick={handleAddToCart} className="bg-black rounded-3xl text-white hover:bg-gray-500 grow py-2">{addToBagButtonText}</button>
                                 </div>                          
                             </div>
                         </div>
@@ -156,4 +145,15 @@ export default function CustomProductPage() {
             : <div className="h-screen"></div>}
         </Layout>
     )
+}
+
+export async function getServerSideProps(context) {
+    await initMongoose()
+    const id = context.params.id
+    const product = await findOnePost(id)
+    return {
+      props : {
+        product: JSON.parse(JSON.stringify(product)),
+      },
+    }
 }

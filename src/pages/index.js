@@ -6,12 +6,15 @@ import { findAllPosts } from "./api/post"
 import Overview from "../../components/overview/Overview"
 import Banner from "../../components/home/Banner"
 import Featured from "../../components/home/Featured"
-
+import { ProductsContext } from "../../components/productCard/ProductsContext"
+import useLocalStorageState from "use-local-storage-state"
+import { useContext } from "react"
 
 export default function Home({products, posts}) {
-  
+  const {nonCustomProductsNew, setNonCustomProductsNew} = useContext(ProductsContext)
   const categoriesNames = [...new Set(products.map(p => p.category))]
-
+  
+  setNonCustomProductsNew(products)
   return (
     <Layout>
       <Banner />
@@ -21,7 +24,7 @@ export default function Home({products, posts}) {
           <div key={categoryName}>
             <div className="py-5">
               <h2 className="text-2xl md:text-4xl font-bold">{categoryName}</h2>
-              <p className="mt-1 text-sm sm:text-md text-gray-400">Human-designed</p>
+              <p className="mt-1 text-sm sm:text-md text-gray-400">Ready Stock</p>
             </div>
             <div className="flex overflow-x-auto snap-x pb-3 gap-5 xl:justify-center">
               {products.filter(p => p.category === categoryName).map(product =>(

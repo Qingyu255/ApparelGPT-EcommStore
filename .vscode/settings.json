@@ -4,5 +4,8 @@
         "Dall",
         "dalle",
         "openai"
+    ],
+    "cSpell.ignoreWords": [
+        "customise"
     ]
 }

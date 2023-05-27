@@ -5,7 +5,6 @@ export default function Card ({ _id, name, prompt, photo, product, colour, purpo
   // This Card is for the AI products overview/showcase
   const shirtRoute = "/products/blankShirts/" + colour
   const toteRoute = "/products/blankTotes/" + colour
-  // const { selectedProducts, setSelectedProducts, selectedCustomProducts, setSelectedCustomProducts } = useContext(ProductsContext)
 
   return (
     <Fragment>
