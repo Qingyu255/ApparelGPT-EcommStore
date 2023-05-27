@@ -51,7 +51,7 @@ export default function Carousel(props) {
                     className="mySwiper"
                 >
                     {iterable.map(productsArray =>                               
-                        <SwiperSlide>
+                        <SwiperSlide key={productsArray[0]._id}>
                             <div className="flex object-fill gap-5 justify-center">
                                 {productsArray.map((post) => <Card key={post._id} {...post}/>)}
                             </div>      

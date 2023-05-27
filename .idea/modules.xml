@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/ecomm-app.iml" filepath="$PROJECT_DIR$/.idea/ecomm-app.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/DallE-EcommStore.iml" filepath="$PROJECT_DIR$/.idea/DallE-EcommStore.iml" />
+>>>>>>> 7d5a74d9681bc66aae7935fcfad32dac236b9ec6
     </modules>
   </component>
 </project>
