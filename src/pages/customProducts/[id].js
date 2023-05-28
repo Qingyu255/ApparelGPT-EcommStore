@@ -36,7 +36,6 @@ export default function CustomProductPage({ product }) {
                 body: JSON.stringify({ ...productData }),
             })
             const postData = await response.json()
-            console.log(postData)
             setSelectedCustomProducts(prev => [...prev, postData.data._id])
             setAddToBagButtonText("Added to Bag Successfully")
             setTimeout(() => {
@@ -53,7 +52,6 @@ export default function CustomProductPage({ product }) {
 
     function handleProductSize(e) {
         setProductData({...productData, size: e.target.name})
-        console.log(productData)
     }
 
     function handleColorChange(hex) {

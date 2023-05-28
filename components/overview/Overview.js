@@ -7,8 +7,6 @@ import Carousel from './Carousel'
 function RenderCards({data, title, home, carousel}) {    
     if(data?.length > 0) {
         const productTypes = [...new Set(data.map(p => p.product))]   
-        console.log("product")
-        console.log(data)
         return (
             productTypes.map(productType => (
                 <div id={productType} key={productType} className='flex flex-col mx-10 mt-10 pt-16'>
@@ -45,7 +43,6 @@ export default function Overview (props) {
 
     useEffect(() => {
         const hash = window.location.hash
-        console.log(hash)
         if (hash) {
           const element = document.querySelector(hash);
           if (element) {
@@ -64,7 +61,6 @@ export default function Overview (props) {
                 },
             })
             if (response.ok) {
-                console.log("fetched")
                 const fetchedData = await response.json()
                 setAllPosts(fetchedData.data.reverse())
             }

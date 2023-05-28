@@ -35,8 +35,7 @@ const Featured = () => {
                 while (index1 === index3) {
                     index2 = getRandomIndex(products.data)
                 }
-                setFeaturedProducts([products.data[index1], products.data[index2], products.data[index3]])
-                console.log("fetched featured")                           
+                setFeaturedProducts([products.data[index1], products.data[index2], products.data[index3]])                         
             }
             
         } catch(error) {

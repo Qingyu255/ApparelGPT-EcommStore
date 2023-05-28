@@ -64,7 +64,6 @@ export default function CreateDesign () {
                     body: JSON.stringify({ ...form }),
                 })
                 const postData = await response.json()
-                console.log(postData)
                 setSelectedCustomProducts(prev => [...prev, postData.data._id])
                 setAddToBagButtonText("Added to Bag Successfully")
                 setTimeout(() => {
@@ -84,7 +83,6 @@ export default function CreateDesign () {
 
     function handleChange(event) {
         setForm({...form, [event.target.name]: event.target.value})
-        console.log(form.prompt)
     }
 
     function handleSurpriseMe() {
