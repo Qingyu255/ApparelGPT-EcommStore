@@ -102,7 +102,7 @@ export default function Overview (props) {
                 :
                 <div>
                     <div>
-                        <h1 className='font-extrabold text-xl mt-10'>Shop Others' Designs</h1>
+                        <h1 className='font-extrabold text-xl mt-10'>Shop Others&rsquo; Designs</h1>
                         <p> Browse through a collection of prints designed by our dearest AI, Dall E.</p>
                     </div>
                     <div className='mt-5 mb-10'>

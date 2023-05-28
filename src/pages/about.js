@@ -8,8 +8,9 @@ export default function about() {
             <ul className="pt-5 max-w-3xl px-10">
                 <li className="pb-2 leading-7">
                     <p>
-                        This site was built as a fully AI-designed apparel ecommerce store driven by the Dall-E image generation model. This was made possible by integrating OpenAI's
-                        API into the site's backend, allowing users to create and share designs based on their unique prompts.
+                    This site was built as a fully AI-designed apparel ecommerce store driven by the Dall-E image generation model.
+                     This was made possible by integrating OpenAI&rsquo;s API into the site&rsquo;s backend, allowing users to create 
+                     and share designs based on their unique prompts.
                     </p>
                 </li>
 
