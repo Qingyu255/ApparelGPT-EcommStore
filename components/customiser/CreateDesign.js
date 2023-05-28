@@ -96,7 +96,7 @@ export default function CreateDesign () {
     <div className='mx-10 sm:m-0 max-w-lg'>
         <div>
             <h1 className="text-2xl font-bold pt-10">Create a Design With AI:</h1>
-            <p className='w-auto py-2 text-sm text-neutral-500'>Let OpenAI's DALL-E AI image generation model design a print for your Apparel.</p>        
+            <p className='w-auto py-2 text-sm text-neutral-500'>Let OpenAI&apos;s DALL-E AI image generation model design a print for your Apparel.</p>        
         </div>
         <div>
             <form className='mt-4 max-w-3xl' onSubmit={handleSubmit}>
