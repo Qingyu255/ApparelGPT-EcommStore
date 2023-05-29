@@ -36,7 +36,7 @@ export default function CheckoutProductCard(props) {
                     <div>
                         <Link href={`/products/${props.id}`}>
                             <h1 className="font-bold text-xl">{props.name}</h1>
-                            <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet</p>
+                            <p>{props.description}</p>
                         </Link>
                         <h1 className="font-semibold pt-2">${props.price}</h1>
                         

@@ -63,7 +63,7 @@ export default function CheckoutPage() {
                         )}
                         {(selectedProducts.length > 0 || selectedCustomProducts.length > 0) && <h1 className="mx-10 font-bold text-3xl">Your Bag</h1>}
                         {selectedProducts.length > 0 && (
-                            nonCustomProductsData.map(productInfo => <CheckoutProductCard key={productInfo._id} id={productInfo._id} name={productInfo.name} image={productInfo.picture} price={productInfo.price} quantity={selectedProducts.filter(id => id === productInfo._id).length}/>
+                            nonCustomProductsData.map(productInfo => <CheckoutProductCard key={productInfo._id} id={productInfo._id} name={productInfo.name} description={productInfo.description} image={productInfo.picture} price={productInfo.price} quantity={selectedProducts.filter(id => id === productInfo._id).length}/>
 
                         ))}
                         {selectedCustomProducts.length > 0 && (
