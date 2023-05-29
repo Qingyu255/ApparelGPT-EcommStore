@@ -39,8 +39,8 @@ export default function CustomProductPage({ product }) {
             setSelectedCustomProducts(prev => [...prev, postData.data._id])
             setAddToBagButtonText("Added to Bag Successfully")
             setTimeout(() => {
-                setAddToBagButtonText('Add To Bag');
-              }, 2000)
+                setAddToBagButtonText('Add To Bag')
+              }, 1000)
 
 
         } catch (error) {

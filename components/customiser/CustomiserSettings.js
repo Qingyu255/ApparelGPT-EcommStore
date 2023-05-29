@@ -31,20 +31,42 @@ export default function CustomiserSettings() {
   return (
     <Fragment>
       <div>
-        <div className='flex flex-wrap gap-6'>
-          <div>
-            <h1 className='font-semibold sm:text-xl'>Pick your Product:</h1>
-            <div className='flex flex-wrap my-2 sm:my-4'>
-              <button className='bg-[#c3c6c9] hover:bg-slate-400 rounded-lg px-2 py-1 mr-1 text-xs sm:text-sm font-semibold' name="T-Shirt" onClick={handleProductType}>T-Shirt</button>
-              <button className='bg-[#c3c6c9] hover:bg-slate-400 rounded-lg px-2 py-1 ml-2 text-xs sm:text-sm font-semibold' name="Tote" onClick={handleProductType}>Tote</button>
+        <div className='flex flex-col'>
+          <div className='flex flex-row gap-6'>
+            <div>
+              <h1 className='font-semibold sm:text-xl'>Pick your Product:</h1>
+              <div className='flex flex-wrap my-2 sm:my-4'>
+                <button className='bg-[#c3c6c9] hover:bg-slate-400 rounded-lg px-2 py-1 mr-1 text-xs sm:text-sm font-semibold' name="T-Shirt" onClick={handleProductType}>T-Shirt</button>
+                <button className='bg-[#c3c6c9] hover:bg-slate-400 rounded-lg px-2 py-1 ml-2 text-xs sm:text-sm font-semibold' name="Tote" onClick={handleProductType}>Tote</button>
+              </div>
+            </div>
+            
+            <div>
+              <h1 className='font-semibold sm:text-xl'>Pick a Colour:</h1>
+              <div className='my-2'>
+                {form.product === "Tote"? 
+                  <CirclePicker
+                    colors={[ '#e3e4de','#e4d5c2', '#1a1d24' ]}
+                    onChange={(color) => handleColorChange(color.hex)}
+                    width="150px"
+                  />
+                : 
+                  <CirclePicker
+                    colors={[ '#e3e4de','#e4d5c2', '#686b70', '#2d3041', '#1a1d24' ]}
+                    onChange={(color) => handleColorChange(color.hex)}
+                    width="150px"
+                  />
+                }
+                <p className='text-xs sm:text-sm mt-2'>{form.colour.split(".")[0]}</p>
+              </div> 
             </div>
           </div>
-          <div>
+
           {form.product != "Tote" &&
             <div>
               <h1 className='font-semibold sm:text-xl'>Choose Size:</h1>
               <p className="text-xs sm:text-sm">{form.size}</p>
-              <div className='grid grid-cols-3 my-2 sm:my-4 gap-2'>
+              <div className='grid grid-cols-3 my-2 gap-2'>
                 <button className='bg-[#c3c6c9] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="XS">XS</button>
                 <button className='bg-[#c3c6c9] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="S">S</button>
                 <button className='bg-[#c3c6c9] hover:bg-slate-300 rounded-lg px-2 py-1 text-xs sm:text-sm font-semibold' onClick={handleProductSize} name="M">M</button>
@@ -54,25 +76,8 @@ export default function CustomiserSettings() {
               </div>
             </div>
           }
-          </div>
-        </div>
-          <h1 className='font-semibold sm:text-xl mt-4'>Pick a Colour:</h1>
-          <div className='my-2 sm:my-4'>
-            {form.product === "Tote"? 
-              <CirclePicker
-                colors={[ '#e3e4de','#e4d5c2', '#1a1d24' ]}
-                onChange={(color) => handleColorChange(color.hex)}
-                width="150px"
-              />
-            : 
-              <CirclePicker
-                colors={[ '#e3e4de','#e4d5c2', '#686b70', '#2d3041', '#1a1d24' ]}
-                onChange={(color) => handleColorChange(color.hex)}
-                width="150px"
-              />
-            }
-            <p className='text-xs sm:text-sm my-2'>{form.colour.split(".")[0]}</p>
-          </div> 
+
+        </div>    
       </div>
     </Fragment>
   );

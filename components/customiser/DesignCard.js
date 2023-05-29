@@ -17,7 +17,7 @@ export default function DesignCard() {
 
   return (
     <Fragment>
-      <div className="pl-10 ml-10 mx-5 sm:mx-10">
+      <div className="mx-5 sm:mx-10">
         <div className="w-72 h-fit sm:w-96 shadow-md">
           <div>
 

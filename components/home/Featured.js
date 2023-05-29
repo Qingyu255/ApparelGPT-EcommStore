@@ -3,7 +3,7 @@ import Card from "../customiser/Card"
 import Loader from "../Loader"
 import Link from "next/link"
 
-const Featured = () => {
+export default function Featured() {
     const [loading, setLoading] = useState(false)
     const [featuredProducts, setFeaturedProducts] = useState([])
 
@@ -51,8 +51,8 @@ const Featured = () => {
 
     const purpose = "featured"
     return (
-        <div className="px-10 flex flex-col mb-10">
-            <h1 className="text-2xl md:text-4xl font-bold py-5">Featured</h1>
+        <div className="mx-5 sm:mx-10 flex flex-col mb-10">
+            <h1 className="text-2xl md:text-4xl font-bold pb-5">Featured</h1>
             <div className="flex justify-center">
                 {!loading? 
                 (<div className="flex overflow-x-auto snap-x gap-8">
@@ -69,7 +69,6 @@ const Featured = () => {
                                 <div className="flex items-center px-2">       
                                     <Link href={`/customProducts/${product._id}`}>                     
                                         <button className="bg-black rounded-xl text-white hover:bg-gray-500 px-4 py-1">Shop</button>
-                                        {/* Change to add to cart png */}
                                     </Link>       
                                 </div>                                    
                             </div>
@@ -86,5 +85,3 @@ const Featured = () => {
         </div>
     )
 }
-
-export default Featured

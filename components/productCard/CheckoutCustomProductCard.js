@@ -30,7 +30,7 @@ export default function CheckoutCustomProductCard({ _id, name, prompt, photo, pr
 
     return (
         <Fragment>
-            <div className="flex flex-wrap mx-10 py-5 border-b-2 border-gray-300">
+            <div className="flex flex-wrap mx-5 sm:mx-10 py-5 border-b-2 border-gray-300">
                 <div className="mr-5">
                     <Link href={`/customProducts/${_id}`}>
                         <div className="h-fit w-52 shadow-md">

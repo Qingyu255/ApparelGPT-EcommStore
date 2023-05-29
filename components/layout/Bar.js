@@ -8,25 +8,29 @@ export default function Bar() {
     const logoText = "AI DRIPS"
 
     useEffect(() => {
-        const handleToggleSidebar = () => {
+        function handleToggleSidebar() {
             setSidebarOpen(!isSidebarOpen)
-        };
+        }
 
-        const handleResize = () => {
-            if (window.innerWidth >= 763 && isSidebarOpen) { // Adjust the breakpoint according to your needs
-                setSidebarOpen(false);
+        function handleResize() {
+            if (window.innerWidth >= 763 && isSidebarOpen) {
+                setSidebarOpen(false)
             }
         }
     
-        const toggleSidebarElement = document.getElementById('toggleSidebar');
-        toggleSidebarElement.addEventListener('click', handleToggleSidebar);
-        window.addEventListener('resize', handleResize);
+        const toggleSidebarElement = document.getElementById('toggleSidebar')
+        toggleSidebarElement.addEventListener('click', handleToggleSidebar)
+        window.addEventListener('resize', handleResize)
 
         return () => {
-          toggleSidebarElement.removeEventListener('click', handleToggleSidebar);
-          window.removeEventListener('resize', handleToggleSidebar);
-        };
-      }, [isSidebarOpen]);
+          toggleSidebarElement.removeEventListener('click', handleToggleSidebar)
+          window.removeEventListener('resize', handleToggleSidebar)
+        }
+      }, [isSidebarOpen])
+
+    function handleCloseSidebar() {
+        setSidebarOpen(false)
+    }
 
     return (
         <Fragment>
@@ -77,15 +81,15 @@ export default function Bar() {
                             </svg>
                         </Link>
                         <div className={`sidebar ${isSidebarOpen ? 'active' : ''}`}>
-                            <Link href="/">
+                            <Link href="/" onClick={handleCloseSidebar}>
                                 <h1 className="text-2xl py-5 px-3 font-bold">{logoText}</h1>
                             </Link>
                             <div>
                                 <ul className="px-3">
-                                    <li className="py-2"><Link class="hover:text-gray-200" href="/customise#Tote" name="Tote">Totes</Link></li>
-                                    <li className="py-2"><Link class="hover:text-gray-200" href="/customise#T-Shirt" name="T-Shirt">Shirts</Link></li>
-                                    <li className="py-2"><Link class="hover:text-gray-200" href="/customise">Customise with AI</Link></li>
-                                    <li className="py-2"><Link class="hover:text-gray-200" href="/about">About</Link></li>
+                                    <li className="py-2"><Link class="hover:text-gray-200" href="/customise#Tote" name="Tote" onClick={handleCloseSidebar}>Totes</Link></li>
+                                    <li className="py-2"><Link class="hover:text-gray-200" href="/customise#T-Shirt" name="T-Shirt" onClick={handleCloseSidebar}>Shirts</Link></li>
+                                    <li className="py-2"><Link class="hover:text-gray-200" href="/customise" onClick={handleCloseSidebar}>Customise with AI</Link></li>
+                                    <li className="py-2"><Link class="hover:text-gray-200" href="/about" onClick={handleCloseSidebar}>About</Link></li>
                                 </ul>
                             </div>
                         </div>

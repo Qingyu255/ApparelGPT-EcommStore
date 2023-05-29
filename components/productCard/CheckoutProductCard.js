@@ -26,7 +26,7 @@ export default function CheckoutProductCard(props) {
 
     return (
         <Fragment>
-            <div className="flex flex-wrap mx-10 py-5 border-b-2 border-gray-300">
+            <div className="flex flex-wrap mx-5 sm:mx-10 py-5 border-b-2 border-gray-300">
                 <div className="flex items-center w-52 mr-5">
                     <Link href={`/products/${props.id}`}>
                         <img className="rounded-xl" src={props.image}></img>

@@ -8,20 +8,9 @@ import { ProductsContext } from '../productCard/ProductsContext'
 export default function CreateDesign () {
     const { form, setForm } = useContext(CustomiserContext)
     const [generatingImg, setGeneratingImage] = useState(false)
-    const [addToBagButtonText, setAddToBagButtonText] = useState("Add To Cart and Share with the Community")
+    const [addToBagButtonText, setAddToBagButtonText] = useState("Add To Bag and Share with the Community")
     const [loading, setLoading] = useState(false)
     const { setSelectedCustomProducts } = useContext(ProductsContext)
-
-    // setForm(
-    //     {
-    //         name: "",
-    //         prompt: "",
-    //         photo: "http://res.cloudinary.com/dq4aaqbme/image/upload/v1681834950/ejrp0tmuhui1v5lln30z.png",
-    //         colour: "Black.jpg",
-    //         product: "T-Shirt",
-    //         size: "",
-    //     }
-    // )
 
     async function generateImage() {
         if (form.prompt) {
@@ -93,7 +82,7 @@ export default function CreateDesign () {
   return (
     <div className='mx-10 sm:m-0 max-w-lg'>
         <div>
-            <h1 className="text-2xl font-bold pt-10">Create a Design With AI:</h1>
+            <h1 className="text-2xl font-bold pt-5 lg:pt-10">Create a Design With AI:</h1>
             <p className='w-auto py-2 text-sm text-neutral-500'>Let OpenAI&apos;s DALL-E AI image generation model design a print for your Apparel.</p>        
         </div>
         <div>

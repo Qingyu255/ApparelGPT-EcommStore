@@ -3,15 +3,18 @@ import Loader from '../Loader'
 import Card from '../customiser/Card'
 import FormField from '../customiser/FormField'
 import Carousel from './Carousel'
+import Link from 'next/link'
 
 function RenderCards({data, title, home, carousel}) {    
     if(data?.length > 0) {
         const productTypes = [...new Set(data.map(p => p.product))]   
         return (
             productTypes.map(productType => (
-                <div id={productType} key={productType} className='flex flex-col mx-10 mt-10 pt-16'>
+                <div id={productType} key={productType} className='flex flex-col mx-5 sm:mx-10 sm:mt-10 sm:pt-12'>
                     <div className='mt-10 mb-10'>
-                        <h2 className="text-3xl md:text-4xl font-bold">{productType}s {home && "by Dall E"}</h2>
+                        <Link class="hover:text-gray-600" href={`/customise#${productType}`}>
+                            <h2 className="text-3xl md:text-4xl font-bold">{productType}s {home && "by Dall E"}</h2>
+                        </Link>
                     </div>
                     <div>
                         {carousel?
@@ -33,6 +36,7 @@ function RenderCards({data, title, home, carousel}) {
         )
     }   
 }
+
 
 export default function Overview (props) {
     const [loading, setLoading] = useState(false)
@@ -86,7 +90,6 @@ export default function Overview (props) {
           }, 500),
         )
     }
- 
 
   return (
     <Fragment>
@@ -125,7 +128,7 @@ export default function Overview (props) {
                             Showing results for <span className='text-gray-500'>{searchText}</span>
                         </h2>
                     )}
-                    <div className=''>
+                    <div>
                         {searchText ? (
                             <RenderCards
                                 data={searchedResults}
@@ -148,7 +151,6 @@ export default function Overview (props) {
             </div>
         </div>
     </Fragment>
-    
   )
 }
 

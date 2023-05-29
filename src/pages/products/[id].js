@@ -14,16 +14,19 @@ export default function ProductPage({ product }) {
         setSelectedProducts(prev => [...prev, product[0]._id])
         setAddToBagButtonText("Added to Bag Successfully")
         setTimeout(() => {
-            setAddToBagButtonText('Add To Bag');
-          }, 2000)
+            setAddToBagButtonText('Add To Bag')
+          }, 1000)
     }
 
     return (
         <Layout>
             {!loading?
-                <div className="flex flex-row justify-center py-5">
-                    <div className="flex flex-wrap w-1/2 flex-row justify-center m-5">
+                <div className="flex flex-col sm:flex-row items-center justify-center py-5">
+                    <div className="flex flex-wrap flex-row justify-center m-5">
                         <div className="p-2 cursor-not-allowed">
+                            <img className="border-solid border-2 border-gray-400 rounded-3xl w-72 lg:w-80 xl:w-96" src={product[0].picture}></img>
+                        </div>
+                        {/* <div className="p-2 cursor-not-allowed">
                             <img className="border-solid border-2 border-gray-400 rounded-3xl w-52 md:w-60 lg:w-72 xl:w-96" src={product[0].picture}></img>
                         </div>
                         <div className="p-2 cursor-not-allowed">
@@ -31,13 +34,10 @@ export default function ProductPage({ product }) {
                         </div>
                         <div className="p-2 cursor-not-allowed">
                             <img className="border-solid border-2 border-gray-400 rounded-3xl w-52 md:w-60 lg:w-72 xl:w-96" src={product[0].picture}></img>
-                        </div>
-                        <div className="p-2 cursor-not-allowed">
-                            <img className="border-solid border-2 border-gray-400 rounded-3xl w-52 md:w-60 lg:w-72 xl:w-96" src={product[0].picture}></img>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="flex flex-wrap flex-col m-5">
-                        <div className="py-2 px-4 w-52 md:w-64 lg:w-72 xl:w-80 2xl:w-96">
+                        <div className="py-2 px-4 w-72 xl:w-80 2xl:w-96">
                             <h3 className="text-emerald-500">Made from recycled materials</h3>
                             <h1 className="text-4xl">{product[0].name}</h1>
                             <p className="py-1 text-lg">S${product[0].price}</p>

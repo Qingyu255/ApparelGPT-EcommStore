@@ -7,8 +7,8 @@ import useLocalStorageState from "use-local-storage-state"
 
 export default function CheckoutPage() {
     const { selectedProducts, selectedCustomProducts, nonCustomProductsNew } = useContext(ProductsContext)
-    const [nonCustomProductsData, setNonCustomProductsData] = useLocalStorageState("nonCustomProductsData", {defaultValue: []})
-    const [customProductsData, setCustomProductsData] = useLocalStorageState("customProductsData", {defaultValue: []})
+    const [nonCustomProductsData, setNonCustomProductsData] = useLocalStorageState("nonCustomProductsBagData", {defaultValue: []})
+    const [customProductsData, setCustomProductsData] = useLocalStorageState("customProductsBagData", {defaultValue: []})
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -61,7 +61,7 @@ export default function CheckoutPage() {
                                 <h1>There are no products in your shopping cart.</h1>
                             </div>
                         )}
-                        {(selectedProducts.length > 0 || selectedCustomProducts.length > 0) && <h1 className="mx-10 font-bold text-3xl">Your Bag</h1>}
+                        {(selectedProducts.length > 0 || selectedCustomProducts.length > 0) && <h1 className="mx-5 sm:mx-10 font-bold text-3xl">Your Bag</h1>}
                         {selectedProducts.length > 0 && (
                             nonCustomProductsData.map(productInfo => <CheckoutProductCard key={productInfo._id} id={productInfo._id} name={productInfo.name} description={productInfo.description} image={productInfo.picture} price={productInfo.price} quantity={selectedProducts.filter(id => id === productInfo._id).length}/>
 
