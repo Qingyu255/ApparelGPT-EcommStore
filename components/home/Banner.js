@@ -1,5 +1,5 @@
 export default function Banner() {
-    const bannerRoute = "/dallEBanner.png"
+    const bannerRoute = "/dallEBannerImage.png"
     const logoText = "AI DRIPS"
     return (
         <div className='flex justify-center'>
