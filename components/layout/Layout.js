@@ -7,10 +7,13 @@ function Layout({ children }) {
     const [prevScrollY, setPrevScrollY] = useState(0)
   
     useEffect(() => {
-        const handleScroll = () => {
+        function handleScroll() {
             const currentScrollY = window.scrollY
             setIsNavVisible(prevScrollY > currentScrollY)
             setPrevScrollY(currentScrollY)
+            if (window.scrollY === 0) {
+              setIsNavVisible(true)
+            }
         }
     
         window.addEventListener("scroll", handleScroll)

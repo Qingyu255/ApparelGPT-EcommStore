@@ -68,8 +68,8 @@ export default function CustomProductPage({ product }) {
     return (
         <Layout>
             {!loading?
-                <div className="flex flex-row justify-center py-5">
-                    <div className="flex flex-wrap w-1/2 flex-row justify-center m-5">
+                <div className="flex flex-col sm:flex-row justify-center py-5">
+                    <div className="flex flex-wrap sm:w-1/2 justify-center m-5">
                         <Swiper
                             navigation={true}
                             modules={[Navigation]}
@@ -88,7 +88,7 @@ export default function CustomProductPage({ product }) {
                         </Swiper>   
                     </div>
                     <div className="flex flex-wrap flex-col m-5">
-                        <div className="py-2 px-4 w-52 md:w-64 lg:w-72 xl:w-80 2xl:w-96">
+                        <div className="py-2 px-4 mb-10 sm:w-52 md:w-64 lg:w-72 xl:w-80 2xl:w-96">
                             <h3 className="text-sm sm:text-md text-emerald-500">Made from recycled materials</h3>
                             <h1 className="text-3xl sm:text-4xl">Customised {productData.product}</h1>
                             <p className="py-1 text-lg">S$20</p>

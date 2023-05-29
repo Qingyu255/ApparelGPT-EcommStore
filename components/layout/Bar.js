@@ -30,7 +30,6 @@ export default function Bar() {
 
     return (
         <Fragment>
-
             <div class="flex flex-wrap place-items-center">
                 <section class="relative mx-auto">
                     {/* <!-- navbar --> */}
