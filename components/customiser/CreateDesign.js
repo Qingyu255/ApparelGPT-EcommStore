@@ -12,16 +12,16 @@ export default function CreateDesign () {
     const [loading, setLoading] = useState(false)
     const { setSelectedCustomProducts } = useContext(ProductsContext)
 
-    // setForm(
-    //     {
-    //         name: "",
-    //         prompt: "",
-    //         photo: "http://res.cloudinary.com/dq4aaqbme/image/upload/v1681834950/ejrp0tmuhui1v5lln30z.png",
-    //         colour: "Black.jpg",
-    //         product: "T-Shirt",
-    //         size: "",
-    //     }
-    // )
+    setForm(
+        {
+            name: "",
+            prompt: "",
+            photo: "http://res.cloudinary.com/dq4aaqbme/image/upload/v1681834950/ejrp0tmuhui1v5lln30z.png",
+            colour: "Black.jpg",
+            product: "T-Shirt",
+            size: "",
+        }
+    )
 
     async function generateImage() {
         if (form.prompt) {
