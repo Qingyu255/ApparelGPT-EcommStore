@@ -9,8 +9,8 @@ export function CustomiserContextProvider({children}) {
     const [form, setForm] = useLocalStorageState("imageGenerated", {defaultValue: {
         name: "",
         prompt: "",
-        photo: "",
-        colour: "",
+        photo: "http://res.cloudinary.com/dq4aaqbme/image/upload/v1681834950/ejrp0tmuhui1v5lln30z.png",
+        colour: "Black.jpg",
         product: customProduct,
         size: "",
     }})    
