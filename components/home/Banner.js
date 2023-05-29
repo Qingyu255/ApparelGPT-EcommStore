@@ -7,7 +7,7 @@ export default function Banner() {
                 <img src={bannerRoute} className='rounded-xl'></img>
                 <div className='absolute bg-[rgba(0,0,0,0.3)] rounded-lg px-5 py-2'>
                     <h1 className='flex justify-center font-black text-xl sm:text-3xl md:text-5xl lg:text-6xl text-white'>{logoText}</h1>
-                    <p className='flex justify-center font-black text-white mt-1 sm:mt-3 text-xs sm:text-md'>Boring Shirts? Dall-E AI is here to help.</p>
+                    <p className='flex justify-center font-black text-white mt-1 sm:mt-3 text-xs sm:text-md'>Boring Apparel? Dall-E AI is here to help.</p>
                 </div>
             </div>
         </div>
