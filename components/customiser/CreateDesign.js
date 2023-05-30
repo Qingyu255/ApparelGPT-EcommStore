@@ -27,6 +27,10 @@ export default function CreateDesign () {
 
                 const data = await response.json()
                 setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` })
+                setAddToBagButtonText("Added to Bag Successfully")
+                setTimeout(() => {
+                    setAddToBagButtonText("Add To Bag and Share with the Community")
+                }, 1000)
             } catch(error) {
                 alert(error)
             } finally {
@@ -56,9 +60,9 @@ export default function CreateDesign () {
                 setSelectedCustomProducts(prev => [...prev, postData.data._id])
                 setAddToBagButtonText("Added to Bag Successfully")
                 setTimeout(() => {
-                    setAddToBagButtonText("Add To Cart and Share with the Community")
-                }, 2000)
-                alert("success")
+                    setAddToBagButtonText("Add To Bag and Share with the Community")
+                }, 1500)
+                
 
             } catch (error) {
                 alert(error)

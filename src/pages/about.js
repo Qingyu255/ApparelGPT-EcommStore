@@ -16,13 +16,13 @@ export default function about() {
 
                 <li className="py-4 leading-7">
                     <p>
-                        The frontend built on React and Tailwind CSS with Next.js as the backend server. Implemented the MongoDB API for database operations, including CRUD operations 
+                        The frontend built on React and Tailwind CSS with Next.js as the backend server. The MongoDB API was implemented for database operations, including CRUD operations 
                         for managing apparel data.
                     </p>
                 </li>
 
                 <li className="py-4 leading-7 underline text-blue-600 hover:text-sky-500">
-                    <a href="https://github.com/Qingyu255/DallE-EcommStore">
+                    <a href="https://github.com/Qingyu255/DallE-EcommStore" target="_blank">
                         Click here for Github Source Code
                     </a>
                 </li>
